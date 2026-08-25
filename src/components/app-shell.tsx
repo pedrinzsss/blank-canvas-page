@@ -135,10 +135,15 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const dynamicLogo = useLogoUrl();
 
-  const { status: kycStatus, loading: kycLoading } = useKycStatus();
+  const {
+    status: kycStatus,
+    loading: kycLoading,
+    isApproved: kycApproved,
+    isDemo,
+  } = useKycStatus();
   const isAdminArea = pathname.startsWith("/admin");
   const isOnboarding = pathname.startsWith("/onboarding");
-  const gated = !kycLoading && !isAdminArea && !isOnboarding && kycStatus !== "approved";
+  const gated = !kycLoading && !isAdminArea && !isOnboarding && !kycApproved;
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -309,6 +314,7 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
           {gated ? (
             <KycGateBanner status={kycStatus} />
           ) : null}
+          {isDemo && !isAdminArea ? <DemoModeBanner /> : null}
           {showMobileBalance && (
             <div className="lg:hidden p-4 border-b border-border/60">
               <MobileBalanceCard />
@@ -328,6 +334,15 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
       </div>
       <Toaster theme="dark" />
       
+    </div>
+  );
+}
+
+function DemoModeBanner() {
+  return (
+    <div className="mx-4 mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-700 dark:text-amber-300 sm:mx-6">
+      <span className="font-semibold">Conta de demonstração.</span>{" "}
+      Você pode navegar e testar os recursos, mas credenciais e movimentações financeiras reais permanecem bloqueadas.
     </div>
   );
 }

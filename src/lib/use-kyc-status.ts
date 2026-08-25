@@ -6,6 +6,7 @@ export type KycStatus = Database["public"]["Enums"]["kyc_status"] | "none";
 
 export function useKycStatus() {
   const [status, setStatus] = useState<KycStatus | null>(null);
+  const [isDemo, setIsDemo] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
@@ -16,12 +17,20 @@ export function useKycStatus() {
       setLoading(false);
       return;
     }
-    const { data } = await supabase
-      .from("kyc_submissions")
-      .select("status")
-      .eq("user_id", userRes.user.id)
-      .maybeSingle();
-    setStatus((data?.status as KycStatus | undefined) ?? "none");
+    const [kycResult, profileResult] = await Promise.all([
+      supabase
+        .from("kyc_submissions")
+        .select("status")
+        .eq("user_id", userRes.user.id)
+        .maybeSingle(),
+      (supabase as any)
+        .from("profiles")
+        .select("is_demo")
+        .eq("id", userRes.user.id)
+        .maybeSingle(),
+    ]);
+    setStatus((kycResult.data?.status as KycStatus | undefined) ?? "none");
+    setIsDemo(profileResult.data?.is_demo === true);
     setLoading(false);
   }, []);
 
@@ -29,5 +38,11 @@ export function useKycStatus() {
     void load();
   }, [load]);
 
-  return { status, loading, refetch: load, isApproved: status === "approved" };
+  return {
+    status,
+    isDemo,
+    loading,
+    refetch: load,
+    isApproved: status === "approved" || isDemo,
+  };
 }
