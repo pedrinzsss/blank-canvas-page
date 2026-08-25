@@ -1,0 +1,1 @@
+ALTER TABLE public.shopify_connections ADD COLUMN IF NOT EXISTS webhook_token text NOT NULL DEFAULT encode(gen_random_bytes(24), 'hex');

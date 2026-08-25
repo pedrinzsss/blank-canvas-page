@@ -1,0 +1,1 @@
+CREATE POLICY "Users manage own customers" ON public.customers FOR ALL USING (EXISTS (SELECT 1 FROM public.api_clients c WHERE c.id = customers.client_id AND c.user_id = auth.uid())) WITH CHECK (EXISTS (SELECT 1 FROM public.api_clients c WHERE c.id = customers.client_id AND c.user_id = auth.uid()));

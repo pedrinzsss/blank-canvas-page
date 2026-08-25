@@ -1,0 +1,1 @@
+DELETE FROM public.customers; DELETE FROM public.api_clients;

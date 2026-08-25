@@ -1,0 +1,1 @@
+UPDATE public.platform_settings SET data = jsonb_set(jsonb_set(jsonb_set(data, '{primary}', '"#61f938"'), '{secondary}', '"#c7fa1a"'), '{primary_button_text}', '"#000000"') WHERE section='cores';

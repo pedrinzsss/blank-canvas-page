@@ -1,0 +1,4 @@
+ALTER TABLE public.checkout_settings
+  ADD COLUMN IF NOT EXISTS builder_config JSONB NOT NULL DEFAULT '{}'::jsonb,
+  ADD COLUMN IF NOT EXISTS published BOOLEAN NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS published_at TIMESTAMPTZ;

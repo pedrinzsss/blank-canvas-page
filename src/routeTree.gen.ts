@@ -9,38 +9,1236 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PagarIdRouteImport } from './routes/pagar.$id'
+import { Route as CheckoutTokenRouteImport } from './routes/checkout.$token'
+import { Route as CPreviewRouteImport } from './routes/c.preview'
+import { Route as COfferCodeRouteImport } from './routes/c.$offerCode'
+import { Route as AuthRegisterRouteImport } from './routes/auth.register'
+import { Route as AuthenticatedWebhooksRouteImport } from './routes/_authenticated/webhooks'
+import { Route as AuthenticatedVendasRouteImport } from './routes/_authenticated/vendas'
+import { Route as AuthenticatedVendaDigitadaRouteImport } from './routes/_authenticated/venda-digitada'
+import { Route as AuthenticatedTaxasEFretesRouteImport } from './routes/_authenticated/taxas-e-fretes'
+import { Route as AuthenticatedSplitDePagamentosRouteImport } from './routes/_authenticated/split-de-pagamentos'
+import { Route as AuthenticatedRelatoriosRouteImport } from './routes/_authenticated/relatorios'
+import { Route as AuthenticatedReceitasRouteImport } from './routes/_authenticated/receitas'
+import { Route as AuthenticatedRecebimentosRouteImport } from './routes/_authenticated/recebimentos'
+import { Route as AuthenticatedQuizlyRouteImport } from './routes/_authenticated/quizly'
+import { Route as AuthenticatedProdutosRouteImport } from './routes/_authenticated/produtos'
+import { Route as AuthenticatedPremiacoesRouteImport } from './routes/_authenticated/premiacoes'
+import { Route as AuthenticatedPlanosRouteImport } from './routes/_authenticated/planos'
+import { Route as AuthenticatedPerfilRouteImport } from './routes/_authenticated/perfil'
+import { Route as AuthenticatedPagamentosRouteImport } from './routes/_authenticated/pagamentos'
+import { Route as AuthenticatedOnboardingRouteImport } from './routes/_authenticated/onboarding'
+import { Route as AuthenticatedOfertaRouteImport } from './routes/_authenticated/oferta'
+import { Route as AuthenticatedMinhasCoproducoesRouteImport } from './routes/_authenticated/minhas-coproducoes'
+import { Route as AuthenticatedMinhasAfiliacoesRouteImport } from './routes/_authenticated/minhas-afiliacoes'
+import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
+import { Route as AuthenticatedLinkDePagamentoRouteImport } from './routes/_authenticated/link-de-pagamento'
+import { Route as AuthenticatedIntegracoesRouteImport } from './routes/_authenticated/integracoes'
+import { Route as AuthenticatedIntegracaoApiRouteImport } from './routes/_authenticated/integracao-api'
+import { Route as AuthenticatedIndiqueEGanheRouteImport } from './routes/_authenticated/indique-e-ganhe'
+import { Route as AuthenticatedFunilRouteImport } from './routes/_authenticated/funil'
+import { Route as AuthenticatedFinanceiroRouteImport } from './routes/_authenticated/financeiro'
+import { Route as AuthenticatedDocumentacaoRouteImport } from './routes/_authenticated/documentacao'
+import { Route as AuthenticatedDespesasRouteImport } from './routes/_authenticated/despesas'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedCuponsRouteImport } from './routes/_authenticated/cupons'
+import { Route as AuthenticatedCriarCobrancaRouteImport } from './routes/_authenticated/criar-cobranca'
+import { Route as AuthenticatedConfiguracoesRouteImport } from './routes/_authenticated/configuracoes'
+import { Route as AuthenticatedCobrancaRecorrenteRouteImport } from './routes/_authenticated/cobranca-recorrente'
+import { Route as AuthenticatedClientesRouteImport } from './routes/_authenticated/clientes'
+import { Route as AuthenticatedCheckoutRouteImport } from './routes/_authenticated/checkout'
+import { Route as AuthenticatedCatalogoRouteImport } from './routes/_authenticated/catalogo'
+import { Route as AuthenticatedCarrinhosAbandonadosRouteImport } from './routes/_authenticated/carrinhos-abandonados'
+import { Route as AuthenticatedAssinaturasRouteImport } from './routes/_authenticated/assinaturas'
+import { Route as AuthenticatedAreaDeMembrosRouteImport } from './routes/_authenticated/area-de-membros'
+import { Route as AuthenticatedAntecipacaoRouteImport } from './routes/_authenticated/antecipacao'
+import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedProdutosIdRouteImport } from './routes/_authenticated/produtos.$id'
+import { Route as AuthenticatedOfertasOfferIdRouteImport } from './routes/_authenticated/ofertas.$offerId'
+import { Route as AuthenticatedMinhasAfiliacoesIdRouteImport } from './routes/_authenticated/minhas-afiliacoes.$id'
+import { Route as AuthenticatedAdminWebhooksRouteImport } from './routes/_authenticated/admin/webhooks'
+import { Route as AuthenticatedAdminVendasRouteImport } from './routes/_authenticated/admin/vendas'
+import { Route as AuthenticatedAdminTransacoesRouteImport } from './routes/_authenticated/admin/transacoes'
+import { Route as AuthenticatedAdminTemaRouteImport } from './routes/_authenticated/admin/tema'
+import { Route as AuthenticatedAdminTaxasRouteImport } from './routes/_authenticated/admin/taxas'
+import { Route as AuthenticatedAdminSaquesRouteImport } from './routes/_authenticated/admin/saques'
+import { Route as AuthenticatedAdminSaldoRouteImport } from './routes/_authenticated/admin/saldo'
+import { Route as AuthenticatedAdminRelatoriosRouteImport } from './routes/_authenticated/admin/relatorios'
+import { Route as AuthenticatedAdminReembolsosRouteImport } from './routes/_authenticated/admin/reembolsos'
+import { Route as AuthenticatedAdminProdutosRouteImport } from './routes/_authenticated/admin/produtos'
+import { Route as AuthenticatedAdminProdutoresRouteImport } from './routes/_authenticated/admin/produtores'
+import { Route as AuthenticatedAdminNotasFiscaisRouteImport } from './routes/_authenticated/admin/notas-fiscais'
+import { Route as AuthenticatedAdminMetasRouteImport } from './routes/_authenticated/admin/metas'
+import { Route as AuthenticatedAdminMedusaDocsRouteImport } from './routes/_authenticated/admin/medusa-docs'
+import { Route as AuthenticatedAdminLogsRouteImport } from './routes/_authenticated/admin/logs'
+import { Route as AuthenticatedAdminKycRouteImport } from './routes/_authenticated/admin/kyc'
+import { Route as AuthenticatedAdminIntegracaoApiRouteImport } from './routes/_authenticated/admin/integracao-api'
+import { Route as AuthenticatedAdminIndiqueEGanheRouteImport } from './routes/_authenticated/admin/indique-e-ganhe'
+import { Route as AuthenticatedAdminIndicacoesRouteImport } from './routes/_authenticated/admin/indicacoes'
+import { Route as AuthenticatedAdminDashboardRouteImport } from './routes/_authenticated/admin/dashboard'
+import { Route as AuthenticatedAdminContasBancariasRouteImport } from './routes/_authenticated/admin/contas-bancarias'
+import { Route as AuthenticatedAdminColaboradoresRouteImport } from './routes/_authenticated/admin/colaboradores'
+import { Route as AuthenticatedAdminAssinaturasRouteImport } from './routes/_authenticated/admin/assinaturas'
+import { Route as AuthenticatedAdminAntecipacoesRouteImport } from './routes/_authenticated/admin/antecipacoes'
+import { Route as AuthenticatedAdminAdquirentesListRouteImport } from './routes/_authenticated/admin/adquirentes-list'
+import { Route as AuthenticatedAdminAdquirentesRouteImport } from './routes/_authenticated/admin/adquirentes'
+import { Route as AuthenticatedAdminAdquirenteRouteImport } from './routes/_authenticated/admin/adquirente'
+import { Route as AuthenticatedAdminAcessosRouteImport } from './routes/_authenticated/admin/acessos'
+import { Route as ApiPublicV1WebhooksRouteImport } from './routes/api/public/v1/webhooks'
+import { Route as ApiPublicV1TransactionsRouteImport } from './routes/api/public/v1/transactions'
+import { Route as ApiPublicV1RefundsRouteImport } from './routes/api/public/v1/refunds'
+import { Route as ApiPublicV1PayoutsRouteImport } from './routes/api/public/v1/payouts'
+import { Route as ApiPublicV1PaymentLinksRouteImport } from './routes/api/public/v1/payment-links'
+import { Route as ApiPublicV1CustomersRouteImport } from './routes/api/public/v1/customers'
+import { Route as ApiPublicV1ChargesRouteImport } from './routes/api/public/v1/charges'
+import { Route as ApiPublicV1CancelRouteImport } from './routes/api/public/v1/cancel'
+import { Route as ApiPublicV1BalanceRouteImport } from './routes/api/public/v1/balance'
+import { Route as ApiPublicV1MedusaWebhookRouteImport } from './routes/api/public/v1/medusa/webhook'
+import { Route as ApiPublicV1CustomersIdRouteImport } from './routes/api/public/v1/customers.$id'
+import { Route as ApiPublicV1ChargesIdRouteImport } from './routes/api/public/v1/charges.$id'
+import { Route as ApiPublicShopifyWebhookTokenRouteImport } from './routes/api/public/shopify/webhook.$token'
 
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PagarIdRoute = PagarIdRouteImport.update({
+  id: '/pagar/$id',
+  path: '/pagar/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutTokenRoute = CheckoutTokenRouteImport.update({
+  id: '/checkout/$token',
+  path: '/checkout/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CPreviewRoute = CPreviewRouteImport.update({
+  id: '/c/preview',
+  path: '/c/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const COfferCodeRoute = COfferCodeRouteImport.update({
+  id: '/c/$offerCode',
+  path: '/c/$offerCode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/auth/register',
+  path: '/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedWebhooksRoute = AuthenticatedWebhooksRouteImport.update({
+  id: '/webhooks',
+  path: '/webhooks',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVendasRoute = AuthenticatedVendasRouteImport.update({
+  id: '/vendas',
+  path: '/vendas',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVendaDigitadaRoute =
+  AuthenticatedVendaDigitadaRouteImport.update({
+    id: '/venda-digitada',
+    path: '/venda-digitada',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTaxasEFretesRoute =
+  AuthenticatedTaxasEFretesRouteImport.update({
+    id: '/taxas-e-fretes',
+    path: '/taxas-e-fretes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSplitDePagamentosRoute =
+  AuthenticatedSplitDePagamentosRouteImport.update({
+    id: '/split-de-pagamentos',
+    path: '/split-de-pagamentos',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRelatoriosRoute = AuthenticatedRelatoriosRouteImport.update({
+  id: '/relatorios',
+  path: '/relatorios',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedReceitasRoute = AuthenticatedReceitasRouteImport.update({
+  id: '/receitas',
+  path: '/receitas',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRecebimentosRoute =
+  AuthenticatedRecebimentosRouteImport.update({
+    id: '/recebimentos',
+    path: '/recebimentos',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedQuizlyRoute = AuthenticatedQuizlyRouteImport.update({
+  id: '/quizly',
+  path: '/quizly',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProdutosRoute = AuthenticatedProdutosRouteImport.update({
+  id: '/produtos',
+  path: '/produtos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPremiacoesRoute = AuthenticatedPremiacoesRouteImport.update({
+  id: '/premiacoes',
+  path: '/premiacoes',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPlanosRoute = AuthenticatedPlanosRouteImport.update({
+  id: '/planos',
+  path: '/planos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPerfilRoute = AuthenticatedPerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPagamentosRoute = AuthenticatedPagamentosRouteImport.update({
+  id: '/pagamentos',
+  path: '/pagamentos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOnboardingRoute = AuthenticatedOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOfertaRoute = AuthenticatedOfertaRouteImport.update({
+  id: '/oferta',
+  path: '/oferta',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMinhasCoproducoesRoute =
+  AuthenticatedMinhasCoproducoesRouteImport.update({
+    id: '/minhas-coproducoes',
+    path: '/minhas-coproducoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMinhasAfiliacoesRoute =
+  AuthenticatedMinhasAfiliacoesRouteImport.update({
+    id: '/minhas-afiliacoes',
+    path: '/minhas-afiliacoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMarketplaceRoute =
+  AuthenticatedMarketplaceRouteImport.update({
+    id: '/marketplace',
+    path: '/marketplace',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedLinkDePagamentoRoute =
+  AuthenticatedLinkDePagamentoRouteImport.update({
+    id: '/link-de-pagamento',
+    path: '/link-de-pagamento',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedIntegracoesRoute =
+  AuthenticatedIntegracoesRouteImport.update({
+    id: '/integracoes',
+    path: '/integracoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedIntegracaoApiRoute =
+  AuthenticatedIntegracaoApiRouteImport.update({
+    id: '/integracao-api',
+    path: '/integracao-api',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedIndiqueEGanheRoute =
+  AuthenticatedIndiqueEGanheRouteImport.update({
+    id: '/indique-e-ganhe',
+    path: '/indique-e-ganhe',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedFunilRoute = AuthenticatedFunilRouteImport.update({
+  id: '/funil',
+  path: '/funil',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedFinanceiroRoute = AuthenticatedFinanceiroRouteImport.update({
+  id: '/financeiro',
+  path: '/financeiro',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDocumentacaoRoute =
+  AuthenticatedDocumentacaoRouteImport.update({
+    id: '/documentacao',
+    path: '/documentacao',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDespesasRoute = AuthenticatedDespesasRouteImport.update({
+  id: '/despesas',
+  path: '/despesas',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCuponsRoute = AuthenticatedCuponsRouteImport.update({
+  id: '/cupons',
+  path: '/cupons',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCriarCobrancaRoute =
+  AuthenticatedCriarCobrancaRouteImport.update({
+    id: '/criar-cobranca',
+    path: '/criar-cobranca',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedConfiguracoesRoute =
+  AuthenticatedConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedCobrancaRecorrenteRoute =
+  AuthenticatedCobrancaRecorrenteRouteImport.update({
+    id: '/cobranca-recorrente',
+    path: '/cobranca-recorrente',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedClientesRoute = AuthenticatedClientesRouteImport.update({
+  id: '/clientes',
+  path: '/clientes',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCheckoutRoute = AuthenticatedCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCatalogoRoute = AuthenticatedCatalogoRouteImport.update({
+  id: '/catalogo',
+  path: '/catalogo',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCarrinhosAbandonadosRoute =
+  AuthenticatedCarrinhosAbandonadosRouteImport.update({
+    id: '/carrinhos-abandonados',
+    path: '/carrinhos-abandonados',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAssinaturasRoute =
+  AuthenticatedAssinaturasRouteImport.update({
+    id: '/assinaturas',
+    path: '/assinaturas',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAreaDeMembrosRoute =
+  AuthenticatedAreaDeMembrosRouteImport.update({
+    id: '/area-de-membros',
+    path: '/area-de-membros',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAntecipacaoRoute =
+  AuthenticatedAntecipacaoRouteImport.update({
+    id: '/antecipacao',
+    path: '/antecipacao',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminRouteRoute = AuthenticatedAdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedProdutosIdRoute = AuthenticatedProdutosIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AuthenticatedProdutosRoute,
+} as any)
+const AuthenticatedOfertasOfferIdRoute =
+  AuthenticatedOfertasOfferIdRouteImport.update({
+    id: '/ofertas/$offerId',
+    path: '/ofertas/$offerId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMinhasAfiliacoesIdRoute =
+  AuthenticatedMinhasAfiliacoesIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedMinhasAfiliacoesRoute,
+  } as any)
+const AuthenticatedAdminWebhooksRoute =
+  AuthenticatedAdminWebhooksRouteImport.update({
+    id: '/webhooks',
+    path: '/webhooks',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminVendasRoute =
+  AuthenticatedAdminVendasRouteImport.update({
+    id: '/vendas',
+    path: '/vendas',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminTransacoesRoute =
+  AuthenticatedAdminTransacoesRouteImport.update({
+    id: '/transacoes',
+    path: '/transacoes',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminTemaRoute = AuthenticatedAdminTemaRouteImport.update({
+  id: '/tema',
+  path: '/tema',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminTaxasRoute = AuthenticatedAdminTaxasRouteImport.update({
+  id: '/taxas',
+  path: '/taxas',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminSaquesRoute =
+  AuthenticatedAdminSaquesRouteImport.update({
+    id: '/saques',
+    path: '/saques',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminSaldoRoute = AuthenticatedAdminSaldoRouteImport.update({
+  id: '/saldo',
+  path: '/saldo',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminRelatoriosRoute =
+  AuthenticatedAdminRelatoriosRouteImport.update({
+    id: '/relatorios',
+    path: '/relatorios',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminReembolsosRoute =
+  AuthenticatedAdminReembolsosRouteImport.update({
+    id: '/reembolsos',
+    path: '/reembolsos',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminProdutosRoute =
+  AuthenticatedAdminProdutosRouteImport.update({
+    id: '/produtos',
+    path: '/produtos',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminProdutoresRoute =
+  AuthenticatedAdminProdutoresRouteImport.update({
+    id: '/produtores',
+    path: '/produtores',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminNotasFiscaisRoute =
+  AuthenticatedAdminNotasFiscaisRouteImport.update({
+    id: '/notas-fiscais',
+    path: '/notas-fiscais',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminMetasRoute = AuthenticatedAdminMetasRouteImport.update({
+  id: '/metas',
+  path: '/metas',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminMedusaDocsRoute =
+  AuthenticatedAdminMedusaDocsRouteImport.update({
+    id: '/medusa-docs',
+    path: '/medusa-docs',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminLogsRoute = AuthenticatedAdminLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminKycRoute = AuthenticatedAdminKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminIntegracaoApiRoute =
+  AuthenticatedAdminIntegracaoApiRouteImport.update({
+    id: '/integracao-api',
+    path: '/integracao-api',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminIndiqueEGanheRoute =
+  AuthenticatedAdminIndiqueEGanheRouteImport.update({
+    id: '/indique-e-ganhe',
+    path: '/indique-e-ganhe',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminIndicacoesRoute =
+  AuthenticatedAdminIndicacoesRouteImport.update({
+    id: '/indicacoes',
+    path: '/indicacoes',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminDashboardRoute =
+  AuthenticatedAdminDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminContasBancariasRoute =
+  AuthenticatedAdminContasBancariasRouteImport.update({
+    id: '/contas-bancarias',
+    path: '/contas-bancarias',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminColaboradoresRoute =
+  AuthenticatedAdminColaboradoresRouteImport.update({
+    id: '/colaboradores',
+    path: '/colaboradores',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAssinaturasRoute =
+  AuthenticatedAdminAssinaturasRouteImport.update({
+    id: '/assinaturas',
+    path: '/assinaturas',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAntecipacoesRoute =
+  AuthenticatedAdminAntecipacoesRouteImport.update({
+    id: '/antecipacoes',
+    path: '/antecipacoes',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAdquirentesListRoute =
+  AuthenticatedAdminAdquirentesListRouteImport.update({
+    id: '/adquirentes-list',
+    path: '/adquirentes-list',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAdquirentesRoute =
+  AuthenticatedAdminAdquirentesRouteImport.update({
+    id: '/adquirentes',
+    path: '/adquirentes',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAdquirenteRoute =
+  AuthenticatedAdminAdquirenteRouteImport.update({
+    id: '/adquirente',
+    path: '/adquirente',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminAcessosRoute =
+  AuthenticatedAdminAcessosRouteImport.update({
+    id: '/acessos',
+    path: '/acessos',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const ApiPublicV1WebhooksRoute = ApiPublicV1WebhooksRouteImport.update({
+  id: '/api/public/v1/webhooks',
+  path: '/api/public/v1/webhooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1TransactionsRoute = ApiPublicV1TransactionsRouteImport.update({
+  id: '/api/public/v1/transactions',
+  path: '/api/public/v1/transactions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1RefundsRoute = ApiPublicV1RefundsRouteImport.update({
+  id: '/api/public/v1/refunds',
+  path: '/api/public/v1/refunds',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1PayoutsRoute = ApiPublicV1PayoutsRouteImport.update({
+  id: '/api/public/v1/payouts',
+  path: '/api/public/v1/payouts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1PaymentLinksRoute = ApiPublicV1PaymentLinksRouteImport.update({
+  id: '/api/public/v1/payment-links',
+  path: '/api/public/v1/payment-links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1CustomersRoute = ApiPublicV1CustomersRouteImport.update({
+  id: '/api/public/v1/customers',
+  path: '/api/public/v1/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1ChargesRoute = ApiPublicV1ChargesRouteImport.update({
+  id: '/api/public/v1/charges',
+  path: '/api/public/v1/charges',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1CancelRoute = ApiPublicV1CancelRouteImport.update({
+  id: '/api/public/v1/cancel',
+  path: '/api/public/v1/cancel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1BalanceRoute = ApiPublicV1BalanceRouteImport.update({
+  id: '/api/public/v1/balance',
+  path: '/api/public/v1/balance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1MedusaWebhookRoute =
+  ApiPublicV1MedusaWebhookRouteImport.update({
+    id: '/api/public/v1/medusa/webhook',
+    path: '/api/public/v1/medusa/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicV1CustomersIdRoute = ApiPublicV1CustomersIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiPublicV1CustomersRoute,
+} as any)
+const ApiPublicV1ChargesIdRoute = ApiPublicV1ChargesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiPublicV1ChargesRoute,
+} as any)
+const ApiPublicShopifyWebhookTokenRoute =
+  ApiPublicShopifyWebhookTokenRouteImport.update({
+    id: '/api/public/shopify/webhook/$token',
+    path: '/api/public/shopify/webhook/$token',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/docs': typeof DocsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/antecipacao': typeof AuthenticatedAntecipacaoRoute
+  '/area-de-membros': typeof AuthenticatedAreaDeMembrosRoute
+  '/assinaturas': typeof AuthenticatedAssinaturasRoute
+  '/carrinhos-abandonados': typeof AuthenticatedCarrinhosAbandonadosRoute
+  '/catalogo': typeof AuthenticatedCatalogoRoute
+  '/checkout': typeof AuthenticatedCheckoutRoute
+  '/clientes': typeof AuthenticatedClientesRoute
+  '/cobranca-recorrente': typeof AuthenticatedCobrancaRecorrenteRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/criar-cobranca': typeof AuthenticatedCriarCobrancaRoute
+  '/cupons': typeof AuthenticatedCuponsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/despesas': typeof AuthenticatedDespesasRoute
+  '/documentacao': typeof AuthenticatedDocumentacaoRoute
+  '/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/funil': typeof AuthenticatedFunilRoute
+  '/indique-e-ganhe': typeof AuthenticatedIndiqueEGanheRoute
+  '/integracao-api': typeof AuthenticatedIntegracaoApiRoute
+  '/integracoes': typeof AuthenticatedIntegracoesRoute
+  '/link-de-pagamento': typeof AuthenticatedLinkDePagamentoRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/minhas-afiliacoes': typeof AuthenticatedMinhasAfiliacoesRouteWithChildren
+  '/minhas-coproducoes': typeof AuthenticatedMinhasCoproducoesRoute
+  '/oferta': typeof AuthenticatedOfertaRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/pagamentos': typeof AuthenticatedPagamentosRoute
+  '/perfil': typeof AuthenticatedPerfilRoute
+  '/planos': typeof AuthenticatedPlanosRoute
+  '/premiacoes': typeof AuthenticatedPremiacoesRoute
+  '/produtos': typeof AuthenticatedProdutosRouteWithChildren
+  '/quizly': typeof AuthenticatedQuizlyRoute
+  '/recebimentos': typeof AuthenticatedRecebimentosRoute
+  '/receitas': typeof AuthenticatedReceitasRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/split-de-pagamentos': typeof AuthenticatedSplitDePagamentosRoute
+  '/taxas-e-fretes': typeof AuthenticatedTaxasEFretesRoute
+  '/venda-digitada': typeof AuthenticatedVendaDigitadaRoute
+  '/vendas': typeof AuthenticatedVendasRoute
+  '/webhooks': typeof AuthenticatedWebhooksRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/c/$offerCode': typeof COfferCodeRoute
+  '/c/preview': typeof CPreviewRoute
+  '/checkout/$token': typeof CheckoutTokenRoute
+  '/pagar/$id': typeof PagarIdRoute
+  '/admin/acessos': typeof AuthenticatedAdminAcessosRoute
+  '/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
+  '/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
+  '/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
+  '/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
+  '/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
+  '/admin/contas-bancarias': typeof AuthenticatedAdminContasBancariasRoute
+  '/admin/dashboard': typeof AuthenticatedAdminDashboardRoute
+  '/admin/indicacoes': typeof AuthenticatedAdminIndicacoesRoute
+  '/admin/indique-e-ganhe': typeof AuthenticatedAdminIndiqueEGanheRoute
+  '/admin/integracao-api': typeof AuthenticatedAdminIntegracaoApiRoute
+  '/admin/kyc': typeof AuthenticatedAdminKycRoute
+  '/admin/logs': typeof AuthenticatedAdminLogsRoute
+  '/admin/medusa-docs': typeof AuthenticatedAdminMedusaDocsRoute
+  '/admin/metas': typeof AuthenticatedAdminMetasRoute
+  '/admin/notas-fiscais': typeof AuthenticatedAdminNotasFiscaisRoute
+  '/admin/produtores': typeof AuthenticatedAdminProdutoresRoute
+  '/admin/produtos': typeof AuthenticatedAdminProdutosRoute
+  '/admin/reembolsos': typeof AuthenticatedAdminReembolsosRoute
+  '/admin/relatorios': typeof AuthenticatedAdminRelatoriosRoute
+  '/admin/saldo': typeof AuthenticatedAdminSaldoRoute
+  '/admin/saques': typeof AuthenticatedAdminSaquesRoute
+  '/admin/taxas': typeof AuthenticatedAdminTaxasRoute
+  '/admin/tema': typeof AuthenticatedAdminTemaRoute
+  '/admin/transacoes': typeof AuthenticatedAdminTransacoesRoute
+  '/admin/vendas': typeof AuthenticatedAdminVendasRoute
+  '/admin/webhooks': typeof AuthenticatedAdminWebhooksRoute
+  '/minhas-afiliacoes/$id': typeof AuthenticatedMinhasAfiliacoesIdRoute
+  '/ofertas/$offerId': typeof AuthenticatedOfertasOfferIdRoute
+  '/produtos/$id': typeof AuthenticatedProdutosIdRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/api/public/v1/balance': typeof ApiPublicV1BalanceRoute
+  '/api/public/v1/cancel': typeof ApiPublicV1CancelRoute
+  '/api/public/v1/charges': typeof ApiPublicV1ChargesRouteWithChildren
+  '/api/public/v1/customers': typeof ApiPublicV1CustomersRouteWithChildren
+  '/api/public/v1/payment-links': typeof ApiPublicV1PaymentLinksRoute
+  '/api/public/v1/payouts': typeof ApiPublicV1PayoutsRoute
+  '/api/public/v1/refunds': typeof ApiPublicV1RefundsRoute
+  '/api/public/v1/transactions': typeof ApiPublicV1TransactionsRoute
+  '/api/public/v1/webhooks': typeof ApiPublicV1WebhooksRoute
+  '/api/public/shopify/webhook/$token': typeof ApiPublicShopifyWebhookTokenRoute
+  '/api/public/v1/charges/$id': typeof ApiPublicV1ChargesIdRoute
+  '/api/public/v1/customers/$id': typeof ApiPublicV1CustomersIdRoute
+  '/api/public/v1/medusa/webhook': typeof ApiPublicV1MedusaWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/docs': typeof DocsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/antecipacao': typeof AuthenticatedAntecipacaoRoute
+  '/area-de-membros': typeof AuthenticatedAreaDeMembrosRoute
+  '/assinaturas': typeof AuthenticatedAssinaturasRoute
+  '/carrinhos-abandonados': typeof AuthenticatedCarrinhosAbandonadosRoute
+  '/catalogo': typeof AuthenticatedCatalogoRoute
+  '/checkout': typeof AuthenticatedCheckoutRoute
+  '/clientes': typeof AuthenticatedClientesRoute
+  '/cobranca-recorrente': typeof AuthenticatedCobrancaRecorrenteRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/criar-cobranca': typeof AuthenticatedCriarCobrancaRoute
+  '/cupons': typeof AuthenticatedCuponsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/despesas': typeof AuthenticatedDespesasRoute
+  '/documentacao': typeof AuthenticatedDocumentacaoRoute
+  '/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/funil': typeof AuthenticatedFunilRoute
+  '/indique-e-ganhe': typeof AuthenticatedIndiqueEGanheRoute
+  '/integracao-api': typeof AuthenticatedIntegracaoApiRoute
+  '/integracoes': typeof AuthenticatedIntegracoesRoute
+  '/link-de-pagamento': typeof AuthenticatedLinkDePagamentoRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/minhas-afiliacoes': typeof AuthenticatedMinhasAfiliacoesRouteWithChildren
+  '/minhas-coproducoes': typeof AuthenticatedMinhasCoproducoesRoute
+  '/oferta': typeof AuthenticatedOfertaRoute
+  '/onboarding': typeof AuthenticatedOnboardingRoute
+  '/pagamentos': typeof AuthenticatedPagamentosRoute
+  '/perfil': typeof AuthenticatedPerfilRoute
+  '/planos': typeof AuthenticatedPlanosRoute
+  '/premiacoes': typeof AuthenticatedPremiacoesRoute
+  '/produtos': typeof AuthenticatedProdutosRouteWithChildren
+  '/quizly': typeof AuthenticatedQuizlyRoute
+  '/recebimentos': typeof AuthenticatedRecebimentosRoute
+  '/receitas': typeof AuthenticatedReceitasRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/split-de-pagamentos': typeof AuthenticatedSplitDePagamentosRoute
+  '/taxas-e-fretes': typeof AuthenticatedTaxasEFretesRoute
+  '/venda-digitada': typeof AuthenticatedVendaDigitadaRoute
+  '/vendas': typeof AuthenticatedVendasRoute
+  '/webhooks': typeof AuthenticatedWebhooksRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/c/$offerCode': typeof COfferCodeRoute
+  '/c/preview': typeof CPreviewRoute
+  '/checkout/$token': typeof CheckoutTokenRoute
+  '/pagar/$id': typeof PagarIdRoute
+  '/admin/acessos': typeof AuthenticatedAdminAcessosRoute
+  '/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
+  '/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
+  '/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
+  '/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
+  '/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
+  '/admin/contas-bancarias': typeof AuthenticatedAdminContasBancariasRoute
+  '/admin/dashboard': typeof AuthenticatedAdminDashboardRoute
+  '/admin/indicacoes': typeof AuthenticatedAdminIndicacoesRoute
+  '/admin/indique-e-ganhe': typeof AuthenticatedAdminIndiqueEGanheRoute
+  '/admin/integracao-api': typeof AuthenticatedAdminIntegracaoApiRoute
+  '/admin/kyc': typeof AuthenticatedAdminKycRoute
+  '/admin/logs': typeof AuthenticatedAdminLogsRoute
+  '/admin/medusa-docs': typeof AuthenticatedAdminMedusaDocsRoute
+  '/admin/metas': typeof AuthenticatedAdminMetasRoute
+  '/admin/notas-fiscais': typeof AuthenticatedAdminNotasFiscaisRoute
+  '/admin/produtores': typeof AuthenticatedAdminProdutoresRoute
+  '/admin/produtos': typeof AuthenticatedAdminProdutosRoute
+  '/admin/reembolsos': typeof AuthenticatedAdminReembolsosRoute
+  '/admin/relatorios': typeof AuthenticatedAdminRelatoriosRoute
+  '/admin/saldo': typeof AuthenticatedAdminSaldoRoute
+  '/admin/saques': typeof AuthenticatedAdminSaquesRoute
+  '/admin/taxas': typeof AuthenticatedAdminTaxasRoute
+  '/admin/tema': typeof AuthenticatedAdminTemaRoute
+  '/admin/transacoes': typeof AuthenticatedAdminTransacoesRoute
+  '/admin/vendas': typeof AuthenticatedAdminVendasRoute
+  '/admin/webhooks': typeof AuthenticatedAdminWebhooksRoute
+  '/minhas-afiliacoes/$id': typeof AuthenticatedMinhasAfiliacoesIdRoute
+  '/ofertas/$offerId': typeof AuthenticatedOfertasOfferIdRoute
+  '/produtos/$id': typeof AuthenticatedProdutosIdRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/api/public/v1/balance': typeof ApiPublicV1BalanceRoute
+  '/api/public/v1/cancel': typeof ApiPublicV1CancelRoute
+  '/api/public/v1/charges': typeof ApiPublicV1ChargesRouteWithChildren
+  '/api/public/v1/customers': typeof ApiPublicV1CustomersRouteWithChildren
+  '/api/public/v1/payment-links': typeof ApiPublicV1PaymentLinksRoute
+  '/api/public/v1/payouts': typeof ApiPublicV1PayoutsRoute
+  '/api/public/v1/refunds': typeof ApiPublicV1RefundsRoute
+  '/api/public/v1/transactions': typeof ApiPublicV1TransactionsRoute
+  '/api/public/v1/webhooks': typeof ApiPublicV1WebhooksRoute
+  '/api/public/shopify/webhook/$token': typeof ApiPublicShopifyWebhookTokenRoute
+  '/api/public/v1/charges/$id': typeof ApiPublicV1ChargesIdRoute
+  '/api/public/v1/customers/$id': typeof ApiPublicV1CustomersIdRoute
+  '/api/public/v1/medusa/webhook': typeof ApiPublicV1MedusaWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/docs': typeof DocsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/_authenticated/antecipacao': typeof AuthenticatedAntecipacaoRoute
+  '/_authenticated/area-de-membros': typeof AuthenticatedAreaDeMembrosRoute
+  '/_authenticated/assinaturas': typeof AuthenticatedAssinaturasRoute
+  '/_authenticated/carrinhos-abandonados': typeof AuthenticatedCarrinhosAbandonadosRoute
+  '/_authenticated/catalogo': typeof AuthenticatedCatalogoRoute
+  '/_authenticated/checkout': typeof AuthenticatedCheckoutRoute
+  '/_authenticated/clientes': typeof AuthenticatedClientesRoute
+  '/_authenticated/cobranca-recorrente': typeof AuthenticatedCobrancaRecorrenteRoute
+  '/_authenticated/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/_authenticated/criar-cobranca': typeof AuthenticatedCriarCobrancaRoute
+  '/_authenticated/cupons': typeof AuthenticatedCuponsRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/despesas': typeof AuthenticatedDespesasRoute
+  '/_authenticated/documentacao': typeof AuthenticatedDocumentacaoRoute
+  '/_authenticated/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/_authenticated/funil': typeof AuthenticatedFunilRoute
+  '/_authenticated/indique-e-ganhe': typeof AuthenticatedIndiqueEGanheRoute
+  '/_authenticated/integracao-api': typeof AuthenticatedIntegracaoApiRoute
+  '/_authenticated/integracoes': typeof AuthenticatedIntegracoesRoute
+  '/_authenticated/link-de-pagamento': typeof AuthenticatedLinkDePagamentoRoute
+  '/_authenticated/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/_authenticated/minhas-afiliacoes': typeof AuthenticatedMinhasAfiliacoesRouteWithChildren
+  '/_authenticated/minhas-coproducoes': typeof AuthenticatedMinhasCoproducoesRoute
+  '/_authenticated/oferta': typeof AuthenticatedOfertaRoute
+  '/_authenticated/onboarding': typeof AuthenticatedOnboardingRoute
+  '/_authenticated/pagamentos': typeof AuthenticatedPagamentosRoute
+  '/_authenticated/perfil': typeof AuthenticatedPerfilRoute
+  '/_authenticated/planos': typeof AuthenticatedPlanosRoute
+  '/_authenticated/premiacoes': typeof AuthenticatedPremiacoesRoute
+  '/_authenticated/produtos': typeof AuthenticatedProdutosRouteWithChildren
+  '/_authenticated/quizly': typeof AuthenticatedQuizlyRoute
+  '/_authenticated/recebimentos': typeof AuthenticatedRecebimentosRoute
+  '/_authenticated/receitas': typeof AuthenticatedReceitasRoute
+  '/_authenticated/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/_authenticated/split-de-pagamentos': typeof AuthenticatedSplitDePagamentosRoute
+  '/_authenticated/taxas-e-fretes': typeof AuthenticatedTaxasEFretesRoute
+  '/_authenticated/venda-digitada': typeof AuthenticatedVendaDigitadaRoute
+  '/_authenticated/vendas': typeof AuthenticatedVendasRoute
+  '/_authenticated/webhooks': typeof AuthenticatedWebhooksRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/c/$offerCode': typeof COfferCodeRoute
+  '/c/preview': typeof CPreviewRoute
+  '/checkout/$token': typeof CheckoutTokenRoute
+  '/pagar/$id': typeof PagarIdRoute
+  '/_authenticated/admin/acessos': typeof AuthenticatedAdminAcessosRoute
+  '/_authenticated/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
+  '/_authenticated/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
+  '/_authenticated/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/_authenticated/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
+  '/_authenticated/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
+  '/_authenticated/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
+  '/_authenticated/admin/contas-bancarias': typeof AuthenticatedAdminContasBancariasRoute
+  '/_authenticated/admin/dashboard': typeof AuthenticatedAdminDashboardRoute
+  '/_authenticated/admin/indicacoes': typeof AuthenticatedAdminIndicacoesRoute
+  '/_authenticated/admin/indique-e-ganhe': typeof AuthenticatedAdminIndiqueEGanheRoute
+  '/_authenticated/admin/integracao-api': typeof AuthenticatedAdminIntegracaoApiRoute
+  '/_authenticated/admin/kyc': typeof AuthenticatedAdminKycRoute
+  '/_authenticated/admin/logs': typeof AuthenticatedAdminLogsRoute
+  '/_authenticated/admin/medusa-docs': typeof AuthenticatedAdminMedusaDocsRoute
+  '/_authenticated/admin/metas': typeof AuthenticatedAdminMetasRoute
+  '/_authenticated/admin/notas-fiscais': typeof AuthenticatedAdminNotasFiscaisRoute
+  '/_authenticated/admin/produtores': typeof AuthenticatedAdminProdutoresRoute
+  '/_authenticated/admin/produtos': typeof AuthenticatedAdminProdutosRoute
+  '/_authenticated/admin/reembolsos': typeof AuthenticatedAdminReembolsosRoute
+  '/_authenticated/admin/relatorios': typeof AuthenticatedAdminRelatoriosRoute
+  '/_authenticated/admin/saldo': typeof AuthenticatedAdminSaldoRoute
+  '/_authenticated/admin/saques': typeof AuthenticatedAdminSaquesRoute
+  '/_authenticated/admin/taxas': typeof AuthenticatedAdminTaxasRoute
+  '/_authenticated/admin/tema': typeof AuthenticatedAdminTemaRoute
+  '/_authenticated/admin/transacoes': typeof AuthenticatedAdminTransacoesRoute
+  '/_authenticated/admin/vendas': typeof AuthenticatedAdminVendasRoute
+  '/_authenticated/admin/webhooks': typeof AuthenticatedAdminWebhooksRoute
+  '/_authenticated/minhas-afiliacoes/$id': typeof AuthenticatedMinhasAfiliacoesIdRoute
+  '/_authenticated/ofertas/$offerId': typeof AuthenticatedOfertasOfferIdRoute
+  '/_authenticated/produtos/$id': typeof AuthenticatedProdutosIdRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/api/public/v1/balance': typeof ApiPublicV1BalanceRoute
+  '/api/public/v1/cancel': typeof ApiPublicV1CancelRoute
+  '/api/public/v1/charges': typeof ApiPublicV1ChargesRouteWithChildren
+  '/api/public/v1/customers': typeof ApiPublicV1CustomersRouteWithChildren
+  '/api/public/v1/payment-links': typeof ApiPublicV1PaymentLinksRoute
+  '/api/public/v1/payouts': typeof ApiPublicV1PayoutsRoute
+  '/api/public/v1/refunds': typeof ApiPublicV1RefundsRoute
+  '/api/public/v1/transactions': typeof ApiPublicV1TransactionsRoute
+  '/api/public/v1/webhooks': typeof ApiPublicV1WebhooksRoute
+  '/api/public/shopify/webhook/$token': typeof ApiPublicShopifyWebhookTokenRoute
+  '/api/public/v1/charges/$id': typeof ApiPublicV1ChargesIdRoute
+  '/api/public/v1/customers/$id': typeof ApiPublicV1CustomersIdRoute
+  '/api/public/v1/medusa/webhook': typeof ApiPublicV1MedusaWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/docs'
+    | '/reset-password'
+    | '/admin'
+    | '/antecipacao'
+    | '/area-de-membros'
+    | '/assinaturas'
+    | '/carrinhos-abandonados'
+    | '/catalogo'
+    | '/checkout'
+    | '/clientes'
+    | '/cobranca-recorrente'
+    | '/configuracoes'
+    | '/criar-cobranca'
+    | '/cupons'
+    | '/dashboard'
+    | '/despesas'
+    | '/documentacao'
+    | '/financeiro'
+    | '/funil'
+    | '/indique-e-ganhe'
+    | '/integracao-api'
+    | '/integracoes'
+    | '/link-de-pagamento'
+    | '/marketplace'
+    | '/minhas-afiliacoes'
+    | '/minhas-coproducoes'
+    | '/oferta'
+    | '/onboarding'
+    | '/pagamentos'
+    | '/perfil'
+    | '/planos'
+    | '/premiacoes'
+    | '/produtos'
+    | '/quizly'
+    | '/recebimentos'
+    | '/receitas'
+    | '/relatorios'
+    | '/split-de-pagamentos'
+    | '/taxas-e-fretes'
+    | '/venda-digitada'
+    | '/vendas'
+    | '/webhooks'
+    | '/auth/register'
+    | '/c/$offerCode'
+    | '/c/preview'
+    | '/checkout/$token'
+    | '/pagar/$id'
+    | '/admin/acessos'
+    | '/admin/adquirente'
+    | '/admin/adquirentes'
+    | '/admin/adquirentes-list'
+    | '/admin/antecipacoes'
+    | '/admin/assinaturas'
+    | '/admin/colaboradores'
+    | '/admin/contas-bancarias'
+    | '/admin/dashboard'
+    | '/admin/indicacoes'
+    | '/admin/indique-e-ganhe'
+    | '/admin/integracao-api'
+    | '/admin/kyc'
+    | '/admin/logs'
+    | '/admin/medusa-docs'
+    | '/admin/metas'
+    | '/admin/notas-fiscais'
+    | '/admin/produtores'
+    | '/admin/produtos'
+    | '/admin/reembolsos'
+    | '/admin/relatorios'
+    | '/admin/saldo'
+    | '/admin/saques'
+    | '/admin/taxas'
+    | '/admin/tema'
+    | '/admin/transacoes'
+    | '/admin/vendas'
+    | '/admin/webhooks'
+    | '/minhas-afiliacoes/$id'
+    | '/ofertas/$offerId'
+    | '/produtos/$id'
+    | '/admin/'
+    | '/api/public/v1/balance'
+    | '/api/public/v1/cancel'
+    | '/api/public/v1/charges'
+    | '/api/public/v1/customers'
+    | '/api/public/v1/payment-links'
+    | '/api/public/v1/payouts'
+    | '/api/public/v1/refunds'
+    | '/api/public/v1/transactions'
+    | '/api/public/v1/webhooks'
+    | '/api/public/shopify/webhook/$token'
+    | '/api/public/v1/charges/$id'
+    | '/api/public/v1/customers/$id'
+    | '/api/public/v1/medusa/webhook'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/docs'
+    | '/reset-password'
+    | '/antecipacao'
+    | '/area-de-membros'
+    | '/assinaturas'
+    | '/carrinhos-abandonados'
+    | '/catalogo'
+    | '/checkout'
+    | '/clientes'
+    | '/cobranca-recorrente'
+    | '/configuracoes'
+    | '/criar-cobranca'
+    | '/cupons'
+    | '/dashboard'
+    | '/despesas'
+    | '/documentacao'
+    | '/financeiro'
+    | '/funil'
+    | '/indique-e-ganhe'
+    | '/integracao-api'
+    | '/integracoes'
+    | '/link-de-pagamento'
+    | '/marketplace'
+    | '/minhas-afiliacoes'
+    | '/minhas-coproducoes'
+    | '/oferta'
+    | '/onboarding'
+    | '/pagamentos'
+    | '/perfil'
+    | '/planos'
+    | '/premiacoes'
+    | '/produtos'
+    | '/quizly'
+    | '/recebimentos'
+    | '/receitas'
+    | '/relatorios'
+    | '/split-de-pagamentos'
+    | '/taxas-e-fretes'
+    | '/venda-digitada'
+    | '/vendas'
+    | '/webhooks'
+    | '/auth/register'
+    | '/c/$offerCode'
+    | '/c/preview'
+    | '/checkout/$token'
+    | '/pagar/$id'
+    | '/admin/acessos'
+    | '/admin/adquirente'
+    | '/admin/adquirentes'
+    | '/admin/adquirentes-list'
+    | '/admin/antecipacoes'
+    | '/admin/assinaturas'
+    | '/admin/colaboradores'
+    | '/admin/contas-bancarias'
+    | '/admin/dashboard'
+    | '/admin/indicacoes'
+    | '/admin/indique-e-ganhe'
+    | '/admin/integracao-api'
+    | '/admin/kyc'
+    | '/admin/logs'
+    | '/admin/medusa-docs'
+    | '/admin/metas'
+    | '/admin/notas-fiscais'
+    | '/admin/produtores'
+    | '/admin/produtos'
+    | '/admin/reembolsos'
+    | '/admin/relatorios'
+    | '/admin/saldo'
+    | '/admin/saques'
+    | '/admin/taxas'
+    | '/admin/tema'
+    | '/admin/transacoes'
+    | '/admin/vendas'
+    | '/admin/webhooks'
+    | '/minhas-afiliacoes/$id'
+    | '/ofertas/$offerId'
+    | '/produtos/$id'
+    | '/admin'
+    | '/api/public/v1/balance'
+    | '/api/public/v1/cancel'
+    | '/api/public/v1/charges'
+    | '/api/public/v1/customers'
+    | '/api/public/v1/payment-links'
+    | '/api/public/v1/payouts'
+    | '/api/public/v1/refunds'
+    | '/api/public/v1/transactions'
+    | '/api/public/v1/webhooks'
+    | '/api/public/shopify/webhook/$token'
+    | '/api/public/v1/charges/$id'
+    | '/api/public/v1/customers/$id'
+    | '/api/public/v1/medusa/webhook'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/docs'
+    | '/reset-password'
+    | '/_authenticated/admin'
+    | '/_authenticated/antecipacao'
+    | '/_authenticated/area-de-membros'
+    | '/_authenticated/assinaturas'
+    | '/_authenticated/carrinhos-abandonados'
+    | '/_authenticated/catalogo'
+    | '/_authenticated/checkout'
+    | '/_authenticated/clientes'
+    | '/_authenticated/cobranca-recorrente'
+    | '/_authenticated/configuracoes'
+    | '/_authenticated/criar-cobranca'
+    | '/_authenticated/cupons'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/despesas'
+    | '/_authenticated/documentacao'
+    | '/_authenticated/financeiro'
+    | '/_authenticated/funil'
+    | '/_authenticated/indique-e-ganhe'
+    | '/_authenticated/integracao-api'
+    | '/_authenticated/integracoes'
+    | '/_authenticated/link-de-pagamento'
+    | '/_authenticated/marketplace'
+    | '/_authenticated/minhas-afiliacoes'
+    | '/_authenticated/minhas-coproducoes'
+    | '/_authenticated/oferta'
+    | '/_authenticated/onboarding'
+    | '/_authenticated/pagamentos'
+    | '/_authenticated/perfil'
+    | '/_authenticated/planos'
+    | '/_authenticated/premiacoes'
+    | '/_authenticated/produtos'
+    | '/_authenticated/quizly'
+    | '/_authenticated/recebimentos'
+    | '/_authenticated/receitas'
+    | '/_authenticated/relatorios'
+    | '/_authenticated/split-de-pagamentos'
+    | '/_authenticated/taxas-e-fretes'
+    | '/_authenticated/venda-digitada'
+    | '/_authenticated/vendas'
+    | '/_authenticated/webhooks'
+    | '/auth/register'
+    | '/c/$offerCode'
+    | '/c/preview'
+    | '/checkout/$token'
+    | '/pagar/$id'
+    | '/_authenticated/admin/acessos'
+    | '/_authenticated/admin/adquirente'
+    | '/_authenticated/admin/adquirentes'
+    | '/_authenticated/admin/adquirentes-list'
+    | '/_authenticated/admin/antecipacoes'
+    | '/_authenticated/admin/assinaturas'
+    | '/_authenticated/admin/colaboradores'
+    | '/_authenticated/admin/contas-bancarias'
+    | '/_authenticated/admin/dashboard'
+    | '/_authenticated/admin/indicacoes'
+    | '/_authenticated/admin/indique-e-ganhe'
+    | '/_authenticated/admin/integracao-api'
+    | '/_authenticated/admin/kyc'
+    | '/_authenticated/admin/logs'
+    | '/_authenticated/admin/medusa-docs'
+    | '/_authenticated/admin/metas'
+    | '/_authenticated/admin/notas-fiscais'
+    | '/_authenticated/admin/produtores'
+    | '/_authenticated/admin/produtos'
+    | '/_authenticated/admin/reembolsos'
+    | '/_authenticated/admin/relatorios'
+    | '/_authenticated/admin/saldo'
+    | '/_authenticated/admin/saques'
+    | '/_authenticated/admin/taxas'
+    | '/_authenticated/admin/tema'
+    | '/_authenticated/admin/transacoes'
+    | '/_authenticated/admin/vendas'
+    | '/_authenticated/admin/webhooks'
+    | '/_authenticated/minhas-afiliacoes/$id'
+    | '/_authenticated/ofertas/$offerId'
+    | '/_authenticated/produtos/$id'
+    | '/_authenticated/admin/'
+    | '/api/public/v1/balance'
+    | '/api/public/v1/cancel'
+    | '/api/public/v1/charges'
+    | '/api/public/v1/customers'
+    | '/api/public/v1/payment-links'
+    | '/api/public/v1/payouts'
+    | '/api/public/v1/refunds'
+    | '/api/public/v1/transactions'
+    | '/api/public/v1/webhooks'
+    | '/api/public/shopify/webhook/$token'
+    | '/api/public/v1/charges/$id'
+    | '/api/public/v1/customers/$id'
+    | '/api/public/v1/medusa/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  DocsRoute: typeof DocsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
+  COfferCodeRoute: typeof COfferCodeRoute
+  CPreviewRoute: typeof CPreviewRoute
+  CheckoutTokenRoute: typeof CheckoutTokenRoute
+  PagarIdRoute: typeof PagarIdRoute
+  ApiPublicV1BalanceRoute: typeof ApiPublicV1BalanceRoute
+  ApiPublicV1CancelRoute: typeof ApiPublicV1CancelRoute
+  ApiPublicV1ChargesRoute: typeof ApiPublicV1ChargesRouteWithChildren
+  ApiPublicV1CustomersRoute: typeof ApiPublicV1CustomersRouteWithChildren
+  ApiPublicV1PaymentLinksRoute: typeof ApiPublicV1PaymentLinksRoute
+  ApiPublicV1PayoutsRoute: typeof ApiPublicV1PayoutsRoute
+  ApiPublicV1RefundsRoute: typeof ApiPublicV1RefundsRoute
+  ApiPublicV1TransactionsRoute: typeof ApiPublicV1TransactionsRoute
+  ApiPublicV1WebhooksRoute: typeof ApiPublicV1WebhooksRoute
+  ApiPublicShopifyWebhookTokenRoute: typeof ApiPublicShopifyWebhookTokenRoute
+  ApiPublicV1MedusaWebhookRoute: typeof ApiPublicV1MedusaWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +1246,874 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pagar/$id': {
+      id: '/pagar/$id'
+      path: '/pagar/$id'
+      fullPath: '/pagar/$id'
+      preLoaderRoute: typeof PagarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/$token': {
+      id: '/checkout/$token'
+      path: '/checkout/$token'
+      fullPath: '/checkout/$token'
+      preLoaderRoute: typeof CheckoutTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/c/preview': {
+      id: '/c/preview'
+      path: '/c/preview'
+      fullPath: '/c/preview'
+      preLoaderRoute: typeof CPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/c/$offerCode': {
+      id: '/c/$offerCode'
+      path: '/c/$offerCode'
+      fullPath: '/c/$offerCode'
+      preLoaderRoute: typeof COfferCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/auth/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/webhooks': {
+      id: '/_authenticated/webhooks'
+      path: '/webhooks'
+      fullPath: '/webhooks'
+      preLoaderRoute: typeof AuthenticatedWebhooksRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/vendas': {
+      id: '/_authenticated/vendas'
+      path: '/vendas'
+      fullPath: '/vendas'
+      preLoaderRoute: typeof AuthenticatedVendasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/venda-digitada': {
+      id: '/_authenticated/venda-digitada'
+      path: '/venda-digitada'
+      fullPath: '/venda-digitada'
+      preLoaderRoute: typeof AuthenticatedVendaDigitadaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/taxas-e-fretes': {
+      id: '/_authenticated/taxas-e-fretes'
+      path: '/taxas-e-fretes'
+      fullPath: '/taxas-e-fretes'
+      preLoaderRoute: typeof AuthenticatedTaxasEFretesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/split-de-pagamentos': {
+      id: '/_authenticated/split-de-pagamentos'
+      path: '/split-de-pagamentos'
+      fullPath: '/split-de-pagamentos'
+      preLoaderRoute: typeof AuthenticatedSplitDePagamentosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/relatorios': {
+      id: '/_authenticated/relatorios'
+      path: '/relatorios'
+      fullPath: '/relatorios'
+      preLoaderRoute: typeof AuthenticatedRelatoriosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/receitas': {
+      id: '/_authenticated/receitas'
+      path: '/receitas'
+      fullPath: '/receitas'
+      preLoaderRoute: typeof AuthenticatedReceitasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/recebimentos': {
+      id: '/_authenticated/recebimentos'
+      path: '/recebimentos'
+      fullPath: '/recebimentos'
+      preLoaderRoute: typeof AuthenticatedRecebimentosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/quizly': {
+      id: '/_authenticated/quizly'
+      path: '/quizly'
+      fullPath: '/quizly'
+      preLoaderRoute: typeof AuthenticatedQuizlyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/produtos': {
+      id: '/_authenticated/produtos'
+      path: '/produtos'
+      fullPath: '/produtos'
+      preLoaderRoute: typeof AuthenticatedProdutosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/premiacoes': {
+      id: '/_authenticated/premiacoes'
+      path: '/premiacoes'
+      fullPath: '/premiacoes'
+      preLoaderRoute: typeof AuthenticatedPremiacoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planos': {
+      id: '/_authenticated/planos'
+      path: '/planos'
+      fullPath: '/planos'
+      preLoaderRoute: typeof AuthenticatedPlanosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/perfil': {
+      id: '/_authenticated/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof AuthenticatedPerfilRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/pagamentos': {
+      id: '/_authenticated/pagamentos'
+      path: '/pagamentos'
+      fullPath: '/pagamentos'
+      preLoaderRoute: typeof AuthenticatedPagamentosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/onboarding': {
+      id: '/_authenticated/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof AuthenticatedOnboardingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/oferta': {
+      id: '/_authenticated/oferta'
+      path: '/oferta'
+      fullPath: '/oferta'
+      preLoaderRoute: typeof AuthenticatedOfertaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/minhas-coproducoes': {
+      id: '/_authenticated/minhas-coproducoes'
+      path: '/minhas-coproducoes'
+      fullPath: '/minhas-coproducoes'
+      preLoaderRoute: typeof AuthenticatedMinhasCoproducoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/minhas-afiliacoes': {
+      id: '/_authenticated/minhas-afiliacoes'
+      path: '/minhas-afiliacoes'
+      fullPath: '/minhas-afiliacoes'
+      preLoaderRoute: typeof AuthenticatedMinhasAfiliacoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/marketplace': {
+      id: '/_authenticated/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof AuthenticatedMarketplaceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/link-de-pagamento': {
+      id: '/_authenticated/link-de-pagamento'
+      path: '/link-de-pagamento'
+      fullPath: '/link-de-pagamento'
+      preLoaderRoute: typeof AuthenticatedLinkDePagamentoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/integracoes': {
+      id: '/_authenticated/integracoes'
+      path: '/integracoes'
+      fullPath: '/integracoes'
+      preLoaderRoute: typeof AuthenticatedIntegracoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/integracao-api': {
+      id: '/_authenticated/integracao-api'
+      path: '/integracao-api'
+      fullPath: '/integracao-api'
+      preLoaderRoute: typeof AuthenticatedIntegracaoApiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/indique-e-ganhe': {
+      id: '/_authenticated/indique-e-ganhe'
+      path: '/indique-e-ganhe'
+      fullPath: '/indique-e-ganhe'
+      preLoaderRoute: typeof AuthenticatedIndiqueEGanheRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/funil': {
+      id: '/_authenticated/funil'
+      path: '/funil'
+      fullPath: '/funil'
+      preLoaderRoute: typeof AuthenticatedFunilRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/financeiro': {
+      id: '/_authenticated/financeiro'
+      path: '/financeiro'
+      fullPath: '/financeiro'
+      preLoaderRoute: typeof AuthenticatedFinanceiroRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/documentacao': {
+      id: '/_authenticated/documentacao'
+      path: '/documentacao'
+      fullPath: '/documentacao'
+      preLoaderRoute: typeof AuthenticatedDocumentacaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/despesas': {
+      id: '/_authenticated/despesas'
+      path: '/despesas'
+      fullPath: '/despesas'
+      preLoaderRoute: typeof AuthenticatedDespesasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cupons': {
+      id: '/_authenticated/cupons'
+      path: '/cupons'
+      fullPath: '/cupons'
+      preLoaderRoute: typeof AuthenticatedCuponsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/criar-cobranca': {
+      id: '/_authenticated/criar-cobranca'
+      path: '/criar-cobranca'
+      fullPath: '/criar-cobranca'
+      preLoaderRoute: typeof AuthenticatedCriarCobrancaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/configuracoes': {
+      id: '/_authenticated/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof AuthenticatedConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cobranca-recorrente': {
+      id: '/_authenticated/cobranca-recorrente'
+      path: '/cobranca-recorrente'
+      fullPath: '/cobranca-recorrente'
+      preLoaderRoute: typeof AuthenticatedCobrancaRecorrenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/clientes': {
+      id: '/_authenticated/clientes'
+      path: '/clientes'
+      fullPath: '/clientes'
+      preLoaderRoute: typeof AuthenticatedClientesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/checkout': {
+      id: '/_authenticated/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof AuthenticatedCheckoutRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/catalogo': {
+      id: '/_authenticated/catalogo'
+      path: '/catalogo'
+      fullPath: '/catalogo'
+      preLoaderRoute: typeof AuthenticatedCatalogoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/carrinhos-abandonados': {
+      id: '/_authenticated/carrinhos-abandonados'
+      path: '/carrinhos-abandonados'
+      fullPath: '/carrinhos-abandonados'
+      preLoaderRoute: typeof AuthenticatedCarrinhosAbandonadosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assinaturas': {
+      id: '/_authenticated/assinaturas'
+      path: '/assinaturas'
+      fullPath: '/assinaturas'
+      preLoaderRoute: typeof AuthenticatedAssinaturasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/area-de-membros': {
+      id: '/_authenticated/area-de-membros'
+      path: '/area-de-membros'
+      fullPath: '/area-de-membros'
+      preLoaderRoute: typeof AuthenticatedAreaDeMembrosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/antecipacao': {
+      id: '/_authenticated/antecipacao'
+      path: '/antecipacao'
+      fullPath: '/antecipacao'
+      preLoaderRoute: typeof AuthenticatedAntecipacaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/produtos/$id': {
+      id: '/_authenticated/produtos/$id'
+      path: '/$id'
+      fullPath: '/produtos/$id'
+      preLoaderRoute: typeof AuthenticatedProdutosIdRouteImport
+      parentRoute: typeof AuthenticatedProdutosRoute
+    }
+    '/_authenticated/ofertas/$offerId': {
+      id: '/_authenticated/ofertas/$offerId'
+      path: '/ofertas/$offerId'
+      fullPath: '/ofertas/$offerId'
+      preLoaderRoute: typeof AuthenticatedOfertasOfferIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/minhas-afiliacoes/$id': {
+      id: '/_authenticated/minhas-afiliacoes/$id'
+      path: '/$id'
+      fullPath: '/minhas-afiliacoes/$id'
+      preLoaderRoute: typeof AuthenticatedMinhasAfiliacoesIdRouteImport
+      parentRoute: typeof AuthenticatedMinhasAfiliacoesRoute
+    }
+    '/_authenticated/admin/webhooks': {
+      id: '/_authenticated/admin/webhooks'
+      path: '/webhooks'
+      fullPath: '/admin/webhooks'
+      preLoaderRoute: typeof AuthenticatedAdminWebhooksRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/vendas': {
+      id: '/_authenticated/admin/vendas'
+      path: '/vendas'
+      fullPath: '/admin/vendas'
+      preLoaderRoute: typeof AuthenticatedAdminVendasRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/transacoes': {
+      id: '/_authenticated/admin/transacoes'
+      path: '/transacoes'
+      fullPath: '/admin/transacoes'
+      preLoaderRoute: typeof AuthenticatedAdminTransacoesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/tema': {
+      id: '/_authenticated/admin/tema'
+      path: '/tema'
+      fullPath: '/admin/tema'
+      preLoaderRoute: typeof AuthenticatedAdminTemaRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/taxas': {
+      id: '/_authenticated/admin/taxas'
+      path: '/taxas'
+      fullPath: '/admin/taxas'
+      preLoaderRoute: typeof AuthenticatedAdminTaxasRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/saques': {
+      id: '/_authenticated/admin/saques'
+      path: '/saques'
+      fullPath: '/admin/saques'
+      preLoaderRoute: typeof AuthenticatedAdminSaquesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/saldo': {
+      id: '/_authenticated/admin/saldo'
+      path: '/saldo'
+      fullPath: '/admin/saldo'
+      preLoaderRoute: typeof AuthenticatedAdminSaldoRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/relatorios': {
+      id: '/_authenticated/admin/relatorios'
+      path: '/relatorios'
+      fullPath: '/admin/relatorios'
+      preLoaderRoute: typeof AuthenticatedAdminRelatoriosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/reembolsos': {
+      id: '/_authenticated/admin/reembolsos'
+      path: '/reembolsos'
+      fullPath: '/admin/reembolsos'
+      preLoaderRoute: typeof AuthenticatedAdminReembolsosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/produtos': {
+      id: '/_authenticated/admin/produtos'
+      path: '/produtos'
+      fullPath: '/admin/produtos'
+      preLoaderRoute: typeof AuthenticatedAdminProdutosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/produtores': {
+      id: '/_authenticated/admin/produtores'
+      path: '/produtores'
+      fullPath: '/admin/produtores'
+      preLoaderRoute: typeof AuthenticatedAdminProdutoresRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/notas-fiscais': {
+      id: '/_authenticated/admin/notas-fiscais'
+      path: '/notas-fiscais'
+      fullPath: '/admin/notas-fiscais'
+      preLoaderRoute: typeof AuthenticatedAdminNotasFiscaisRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/metas': {
+      id: '/_authenticated/admin/metas'
+      path: '/metas'
+      fullPath: '/admin/metas'
+      preLoaderRoute: typeof AuthenticatedAdminMetasRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/medusa-docs': {
+      id: '/_authenticated/admin/medusa-docs'
+      path: '/medusa-docs'
+      fullPath: '/admin/medusa-docs'
+      preLoaderRoute: typeof AuthenticatedAdminMedusaDocsRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/logs': {
+      id: '/_authenticated/admin/logs'
+      path: '/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AuthenticatedAdminLogsRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/kyc': {
+      id: '/_authenticated/admin/kyc'
+      path: '/kyc'
+      fullPath: '/admin/kyc'
+      preLoaderRoute: typeof AuthenticatedAdminKycRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/integracao-api': {
+      id: '/_authenticated/admin/integracao-api'
+      path: '/integracao-api'
+      fullPath: '/admin/integracao-api'
+      preLoaderRoute: typeof AuthenticatedAdminIntegracaoApiRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/indique-e-ganhe': {
+      id: '/_authenticated/admin/indique-e-ganhe'
+      path: '/indique-e-ganhe'
+      fullPath: '/admin/indique-e-ganhe'
+      preLoaderRoute: typeof AuthenticatedAdminIndiqueEGanheRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/indicacoes': {
+      id: '/_authenticated/admin/indicacoes'
+      path: '/indicacoes'
+      fullPath: '/admin/indicacoes'
+      preLoaderRoute: typeof AuthenticatedAdminIndicacoesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/dashboard': {
+      id: '/_authenticated/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AuthenticatedAdminDashboardRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/contas-bancarias': {
+      id: '/_authenticated/admin/contas-bancarias'
+      path: '/contas-bancarias'
+      fullPath: '/admin/contas-bancarias'
+      preLoaderRoute: typeof AuthenticatedAdminContasBancariasRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/colaboradores': {
+      id: '/_authenticated/admin/colaboradores'
+      path: '/colaboradores'
+      fullPath: '/admin/colaboradores'
+      preLoaderRoute: typeof AuthenticatedAdminColaboradoresRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/assinaturas': {
+      id: '/_authenticated/admin/assinaturas'
+      path: '/assinaturas'
+      fullPath: '/admin/assinaturas'
+      preLoaderRoute: typeof AuthenticatedAdminAssinaturasRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/antecipacoes': {
+      id: '/_authenticated/admin/antecipacoes'
+      path: '/antecipacoes'
+      fullPath: '/admin/antecipacoes'
+      preLoaderRoute: typeof AuthenticatedAdminAntecipacoesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/adquirentes-list': {
+      id: '/_authenticated/admin/adquirentes-list'
+      path: '/adquirentes-list'
+      fullPath: '/admin/adquirentes-list'
+      preLoaderRoute: typeof AuthenticatedAdminAdquirentesListRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/adquirentes': {
+      id: '/_authenticated/admin/adquirentes'
+      path: '/adquirentes'
+      fullPath: '/admin/adquirentes'
+      preLoaderRoute: typeof AuthenticatedAdminAdquirentesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/adquirente': {
+      id: '/_authenticated/admin/adquirente'
+      path: '/adquirente'
+      fullPath: '/admin/adquirente'
+      preLoaderRoute: typeof AuthenticatedAdminAdquirenteRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/acessos': {
+      id: '/_authenticated/admin/acessos'
+      path: '/acessos'
+      fullPath: '/admin/acessos'
+      preLoaderRoute: typeof AuthenticatedAdminAcessosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/api/public/v1/webhooks': {
+      id: '/api/public/v1/webhooks'
+      path: '/api/public/v1/webhooks'
+      fullPath: '/api/public/v1/webhooks'
+      preLoaderRoute: typeof ApiPublicV1WebhooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/transactions': {
+      id: '/api/public/v1/transactions'
+      path: '/api/public/v1/transactions'
+      fullPath: '/api/public/v1/transactions'
+      preLoaderRoute: typeof ApiPublicV1TransactionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/refunds': {
+      id: '/api/public/v1/refunds'
+      path: '/api/public/v1/refunds'
+      fullPath: '/api/public/v1/refunds'
+      preLoaderRoute: typeof ApiPublicV1RefundsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/payouts': {
+      id: '/api/public/v1/payouts'
+      path: '/api/public/v1/payouts'
+      fullPath: '/api/public/v1/payouts'
+      preLoaderRoute: typeof ApiPublicV1PayoutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/payment-links': {
+      id: '/api/public/v1/payment-links'
+      path: '/api/public/v1/payment-links'
+      fullPath: '/api/public/v1/payment-links'
+      preLoaderRoute: typeof ApiPublicV1PaymentLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/customers': {
+      id: '/api/public/v1/customers'
+      path: '/api/public/v1/customers'
+      fullPath: '/api/public/v1/customers'
+      preLoaderRoute: typeof ApiPublicV1CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/charges': {
+      id: '/api/public/v1/charges'
+      path: '/api/public/v1/charges'
+      fullPath: '/api/public/v1/charges'
+      preLoaderRoute: typeof ApiPublicV1ChargesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/cancel': {
+      id: '/api/public/v1/cancel'
+      path: '/api/public/v1/cancel'
+      fullPath: '/api/public/v1/cancel'
+      preLoaderRoute: typeof ApiPublicV1CancelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/balance': {
+      id: '/api/public/v1/balance'
+      path: '/api/public/v1/balance'
+      fullPath: '/api/public/v1/balance'
+      preLoaderRoute: typeof ApiPublicV1BalanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/medusa/webhook': {
+      id: '/api/public/v1/medusa/webhook'
+      path: '/api/public/v1/medusa/webhook'
+      fullPath: '/api/public/v1/medusa/webhook'
+      preLoaderRoute: typeof ApiPublicV1MedusaWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/customers/$id': {
+      id: '/api/public/v1/customers/$id'
+      path: '/$id'
+      fullPath: '/api/public/v1/customers/$id'
+      preLoaderRoute: typeof ApiPublicV1CustomersIdRouteImport
+      parentRoute: typeof ApiPublicV1CustomersRoute
+    }
+    '/api/public/v1/charges/$id': {
+      id: '/api/public/v1/charges/$id'
+      path: '/$id'
+      fullPath: '/api/public/v1/charges/$id'
+      preLoaderRoute: typeof ApiPublicV1ChargesIdRouteImport
+      parentRoute: typeof ApiPublicV1ChargesRoute
+    }
+    '/api/public/shopify/webhook/$token': {
+      id: '/api/public/shopify/webhook/$token'
+      path: '/api/public/shopify/webhook/$token'
+      fullPath: '/api/public/shopify/webhook/$token'
+      preLoaderRoute: typeof ApiPublicShopifyWebhookTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminAcessosRoute: typeof AuthenticatedAdminAcessosRoute
+  AuthenticatedAdminAdquirenteRoute: typeof AuthenticatedAdminAdquirenteRoute
+  AuthenticatedAdminAdquirentesRoute: typeof AuthenticatedAdminAdquirentesRoute
+  AuthenticatedAdminAdquirentesListRoute: typeof AuthenticatedAdminAdquirentesListRoute
+  AuthenticatedAdminAntecipacoesRoute: typeof AuthenticatedAdminAntecipacoesRoute
+  AuthenticatedAdminAssinaturasRoute: typeof AuthenticatedAdminAssinaturasRoute
+  AuthenticatedAdminColaboradoresRoute: typeof AuthenticatedAdminColaboradoresRoute
+  AuthenticatedAdminContasBancariasRoute: typeof AuthenticatedAdminContasBancariasRoute
+  AuthenticatedAdminDashboardRoute: typeof AuthenticatedAdminDashboardRoute
+  AuthenticatedAdminIndicacoesRoute: typeof AuthenticatedAdminIndicacoesRoute
+  AuthenticatedAdminIndiqueEGanheRoute: typeof AuthenticatedAdminIndiqueEGanheRoute
+  AuthenticatedAdminIntegracaoApiRoute: typeof AuthenticatedAdminIntegracaoApiRoute
+  AuthenticatedAdminKycRoute: typeof AuthenticatedAdminKycRoute
+  AuthenticatedAdminLogsRoute: typeof AuthenticatedAdminLogsRoute
+  AuthenticatedAdminMedusaDocsRoute: typeof AuthenticatedAdminMedusaDocsRoute
+  AuthenticatedAdminMetasRoute: typeof AuthenticatedAdminMetasRoute
+  AuthenticatedAdminNotasFiscaisRoute: typeof AuthenticatedAdminNotasFiscaisRoute
+  AuthenticatedAdminProdutoresRoute: typeof AuthenticatedAdminProdutoresRoute
+  AuthenticatedAdminProdutosRoute: typeof AuthenticatedAdminProdutosRoute
+  AuthenticatedAdminReembolsosRoute: typeof AuthenticatedAdminReembolsosRoute
+  AuthenticatedAdminRelatoriosRoute: typeof AuthenticatedAdminRelatoriosRoute
+  AuthenticatedAdminSaldoRoute: typeof AuthenticatedAdminSaldoRoute
+  AuthenticatedAdminSaquesRoute: typeof AuthenticatedAdminSaquesRoute
+  AuthenticatedAdminTaxasRoute: typeof AuthenticatedAdminTaxasRoute
+  AuthenticatedAdminTemaRoute: typeof AuthenticatedAdminTemaRoute
+  AuthenticatedAdminTransacoesRoute: typeof AuthenticatedAdminTransacoesRoute
+  AuthenticatedAdminVendasRoute: typeof AuthenticatedAdminVendasRoute
+  AuthenticatedAdminWebhooksRoute: typeof AuthenticatedAdminWebhooksRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+}
+
+const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
+  {
+    AuthenticatedAdminAcessosRoute: AuthenticatedAdminAcessosRoute,
+    AuthenticatedAdminAdquirenteRoute: AuthenticatedAdminAdquirenteRoute,
+    AuthenticatedAdminAdquirentesRoute: AuthenticatedAdminAdquirentesRoute,
+    AuthenticatedAdminAdquirentesListRoute:
+      AuthenticatedAdminAdquirentesListRoute,
+    AuthenticatedAdminAntecipacoesRoute: AuthenticatedAdminAntecipacoesRoute,
+    AuthenticatedAdminAssinaturasRoute: AuthenticatedAdminAssinaturasRoute,
+    AuthenticatedAdminColaboradoresRoute: AuthenticatedAdminColaboradoresRoute,
+    AuthenticatedAdminContasBancariasRoute:
+      AuthenticatedAdminContasBancariasRoute,
+    AuthenticatedAdminDashboardRoute: AuthenticatedAdminDashboardRoute,
+    AuthenticatedAdminIndicacoesRoute: AuthenticatedAdminIndicacoesRoute,
+    AuthenticatedAdminIndiqueEGanheRoute: AuthenticatedAdminIndiqueEGanheRoute,
+    AuthenticatedAdminIntegracaoApiRoute: AuthenticatedAdminIntegracaoApiRoute,
+    AuthenticatedAdminKycRoute: AuthenticatedAdminKycRoute,
+    AuthenticatedAdminLogsRoute: AuthenticatedAdminLogsRoute,
+    AuthenticatedAdminMedusaDocsRoute: AuthenticatedAdminMedusaDocsRoute,
+    AuthenticatedAdminMetasRoute: AuthenticatedAdminMetasRoute,
+    AuthenticatedAdminNotasFiscaisRoute: AuthenticatedAdminNotasFiscaisRoute,
+    AuthenticatedAdminProdutoresRoute: AuthenticatedAdminProdutoresRoute,
+    AuthenticatedAdminProdutosRoute: AuthenticatedAdminProdutosRoute,
+    AuthenticatedAdminReembolsosRoute: AuthenticatedAdminReembolsosRoute,
+    AuthenticatedAdminRelatoriosRoute: AuthenticatedAdminRelatoriosRoute,
+    AuthenticatedAdminSaldoRoute: AuthenticatedAdminSaldoRoute,
+    AuthenticatedAdminSaquesRoute: AuthenticatedAdminSaquesRoute,
+    AuthenticatedAdminTaxasRoute: AuthenticatedAdminTaxasRoute,
+    AuthenticatedAdminTemaRoute: AuthenticatedAdminTemaRoute,
+    AuthenticatedAdminTransacoesRoute: AuthenticatedAdminTransacoesRoute,
+    AuthenticatedAdminVendasRoute: AuthenticatedAdminVendasRoute,
+    AuthenticatedAdminWebhooksRoute: AuthenticatedAdminWebhooksRoute,
+    AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+  }
+
+const AuthenticatedAdminRouteRouteWithChildren =
+  AuthenticatedAdminRouteRoute._addFileChildren(
+    AuthenticatedAdminRouteRouteChildren,
+  )
+
+interface AuthenticatedMinhasAfiliacoesRouteChildren {
+  AuthenticatedMinhasAfiliacoesIdRoute: typeof AuthenticatedMinhasAfiliacoesIdRoute
+}
+
+const AuthenticatedMinhasAfiliacoesRouteChildren: AuthenticatedMinhasAfiliacoesRouteChildren =
+  {
+    AuthenticatedMinhasAfiliacoesIdRoute: AuthenticatedMinhasAfiliacoesIdRoute,
+  }
+
+const AuthenticatedMinhasAfiliacoesRouteWithChildren =
+  AuthenticatedMinhasAfiliacoesRoute._addFileChildren(
+    AuthenticatedMinhasAfiliacoesRouteChildren,
+  )
+
+interface AuthenticatedProdutosRouteChildren {
+  AuthenticatedProdutosIdRoute: typeof AuthenticatedProdutosIdRoute
+}
+
+const AuthenticatedProdutosRouteChildren: AuthenticatedProdutosRouteChildren = {
+  AuthenticatedProdutosIdRoute: AuthenticatedProdutosIdRoute,
+}
+
+const AuthenticatedProdutosRouteWithChildren =
+  AuthenticatedProdutosRoute._addFileChildren(
+    AuthenticatedProdutosRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren
+  AuthenticatedAntecipacaoRoute: typeof AuthenticatedAntecipacaoRoute
+  AuthenticatedAreaDeMembrosRoute: typeof AuthenticatedAreaDeMembrosRoute
+  AuthenticatedAssinaturasRoute: typeof AuthenticatedAssinaturasRoute
+  AuthenticatedCarrinhosAbandonadosRoute: typeof AuthenticatedCarrinhosAbandonadosRoute
+  AuthenticatedCatalogoRoute: typeof AuthenticatedCatalogoRoute
+  AuthenticatedCheckoutRoute: typeof AuthenticatedCheckoutRoute
+  AuthenticatedClientesRoute: typeof AuthenticatedClientesRoute
+  AuthenticatedCobrancaRecorrenteRoute: typeof AuthenticatedCobrancaRecorrenteRoute
+  AuthenticatedConfiguracoesRoute: typeof AuthenticatedConfiguracoesRoute
+  AuthenticatedCriarCobrancaRoute: typeof AuthenticatedCriarCobrancaRoute
+  AuthenticatedCuponsRoute: typeof AuthenticatedCuponsRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedDespesasRoute: typeof AuthenticatedDespesasRoute
+  AuthenticatedDocumentacaoRoute: typeof AuthenticatedDocumentacaoRoute
+  AuthenticatedFinanceiroRoute: typeof AuthenticatedFinanceiroRoute
+  AuthenticatedFunilRoute: typeof AuthenticatedFunilRoute
+  AuthenticatedIndiqueEGanheRoute: typeof AuthenticatedIndiqueEGanheRoute
+  AuthenticatedIntegracaoApiRoute: typeof AuthenticatedIntegracaoApiRoute
+  AuthenticatedIntegracoesRoute: typeof AuthenticatedIntegracoesRoute
+  AuthenticatedLinkDePagamentoRoute: typeof AuthenticatedLinkDePagamentoRoute
+  AuthenticatedMarketplaceRoute: typeof AuthenticatedMarketplaceRoute
+  AuthenticatedMinhasAfiliacoesRoute: typeof AuthenticatedMinhasAfiliacoesRouteWithChildren
+  AuthenticatedMinhasCoproducoesRoute: typeof AuthenticatedMinhasCoproducoesRoute
+  AuthenticatedOfertaRoute: typeof AuthenticatedOfertaRoute
+  AuthenticatedOnboardingRoute: typeof AuthenticatedOnboardingRoute
+  AuthenticatedPagamentosRoute: typeof AuthenticatedPagamentosRoute
+  AuthenticatedPerfilRoute: typeof AuthenticatedPerfilRoute
+  AuthenticatedPlanosRoute: typeof AuthenticatedPlanosRoute
+  AuthenticatedPremiacoesRoute: typeof AuthenticatedPremiacoesRoute
+  AuthenticatedProdutosRoute: typeof AuthenticatedProdutosRouteWithChildren
+  AuthenticatedQuizlyRoute: typeof AuthenticatedQuizlyRoute
+  AuthenticatedRecebimentosRoute: typeof AuthenticatedRecebimentosRoute
+  AuthenticatedReceitasRoute: typeof AuthenticatedReceitasRoute
+  AuthenticatedRelatoriosRoute: typeof AuthenticatedRelatoriosRoute
+  AuthenticatedSplitDePagamentosRoute: typeof AuthenticatedSplitDePagamentosRoute
+  AuthenticatedTaxasEFretesRoute: typeof AuthenticatedTaxasEFretesRoute
+  AuthenticatedVendaDigitadaRoute: typeof AuthenticatedVendaDigitadaRoute
+  AuthenticatedVendasRoute: typeof AuthenticatedVendasRoute
+  AuthenticatedWebhooksRoute: typeof AuthenticatedWebhooksRoute
+  AuthenticatedOfertasOfferIdRoute: typeof AuthenticatedOfertasOfferIdRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRouteRoute: AuthenticatedAdminRouteRouteWithChildren,
+  AuthenticatedAntecipacaoRoute: AuthenticatedAntecipacaoRoute,
+  AuthenticatedAreaDeMembrosRoute: AuthenticatedAreaDeMembrosRoute,
+  AuthenticatedAssinaturasRoute: AuthenticatedAssinaturasRoute,
+  AuthenticatedCarrinhosAbandonadosRoute:
+    AuthenticatedCarrinhosAbandonadosRoute,
+  AuthenticatedCatalogoRoute: AuthenticatedCatalogoRoute,
+  AuthenticatedCheckoutRoute: AuthenticatedCheckoutRoute,
+  AuthenticatedClientesRoute: AuthenticatedClientesRoute,
+  AuthenticatedCobrancaRecorrenteRoute: AuthenticatedCobrancaRecorrenteRoute,
+  AuthenticatedConfiguracoesRoute: AuthenticatedConfiguracoesRoute,
+  AuthenticatedCriarCobrancaRoute: AuthenticatedCriarCobrancaRoute,
+  AuthenticatedCuponsRoute: AuthenticatedCuponsRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedDespesasRoute: AuthenticatedDespesasRoute,
+  AuthenticatedDocumentacaoRoute: AuthenticatedDocumentacaoRoute,
+  AuthenticatedFinanceiroRoute: AuthenticatedFinanceiroRoute,
+  AuthenticatedFunilRoute: AuthenticatedFunilRoute,
+  AuthenticatedIndiqueEGanheRoute: AuthenticatedIndiqueEGanheRoute,
+  AuthenticatedIntegracaoApiRoute: AuthenticatedIntegracaoApiRoute,
+  AuthenticatedIntegracoesRoute: AuthenticatedIntegracoesRoute,
+  AuthenticatedLinkDePagamentoRoute: AuthenticatedLinkDePagamentoRoute,
+  AuthenticatedMarketplaceRoute: AuthenticatedMarketplaceRoute,
+  AuthenticatedMinhasAfiliacoesRoute:
+    AuthenticatedMinhasAfiliacoesRouteWithChildren,
+  AuthenticatedMinhasCoproducoesRoute: AuthenticatedMinhasCoproducoesRoute,
+  AuthenticatedOfertaRoute: AuthenticatedOfertaRoute,
+  AuthenticatedOnboardingRoute: AuthenticatedOnboardingRoute,
+  AuthenticatedPagamentosRoute: AuthenticatedPagamentosRoute,
+  AuthenticatedPerfilRoute: AuthenticatedPerfilRoute,
+  AuthenticatedPlanosRoute: AuthenticatedPlanosRoute,
+  AuthenticatedPremiacoesRoute: AuthenticatedPremiacoesRoute,
+  AuthenticatedProdutosRoute: AuthenticatedProdutosRouteWithChildren,
+  AuthenticatedQuizlyRoute: AuthenticatedQuizlyRoute,
+  AuthenticatedRecebimentosRoute: AuthenticatedRecebimentosRoute,
+  AuthenticatedReceitasRoute: AuthenticatedReceitasRoute,
+  AuthenticatedRelatoriosRoute: AuthenticatedRelatoriosRoute,
+  AuthenticatedSplitDePagamentosRoute: AuthenticatedSplitDePagamentosRoute,
+  AuthenticatedTaxasEFretesRoute: AuthenticatedTaxasEFretesRoute,
+  AuthenticatedVendaDigitadaRoute: AuthenticatedVendaDigitadaRoute,
+  AuthenticatedVendasRoute: AuthenticatedVendasRoute,
+  AuthenticatedWebhooksRoute: AuthenticatedWebhooksRoute,
+  AuthenticatedOfertasOfferIdRoute: AuthenticatedOfertasOfferIdRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
+interface ApiPublicV1ChargesRouteChildren {
+  ApiPublicV1ChargesIdRoute: typeof ApiPublicV1ChargesIdRoute
+}
+
+const ApiPublicV1ChargesRouteChildren: ApiPublicV1ChargesRouteChildren = {
+  ApiPublicV1ChargesIdRoute: ApiPublicV1ChargesIdRoute,
+}
+
+const ApiPublicV1ChargesRouteWithChildren =
+  ApiPublicV1ChargesRoute._addFileChildren(ApiPublicV1ChargesRouteChildren)
+
+interface ApiPublicV1CustomersRouteChildren {
+  ApiPublicV1CustomersIdRoute: typeof ApiPublicV1CustomersIdRoute
+}
+
+const ApiPublicV1CustomersRouteChildren: ApiPublicV1CustomersRouteChildren = {
+  ApiPublicV1CustomersIdRoute: ApiPublicV1CustomersIdRoute,
+}
+
+const ApiPublicV1CustomersRouteWithChildren =
+  ApiPublicV1CustomersRoute._addFileChildren(ApiPublicV1CustomersRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  DocsRoute: DocsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
+  COfferCodeRoute: COfferCodeRoute,
+  CPreviewRoute: CPreviewRoute,
+  CheckoutTokenRoute: CheckoutTokenRoute,
+  PagarIdRoute: PagarIdRoute,
+  ApiPublicV1BalanceRoute: ApiPublicV1BalanceRoute,
+  ApiPublicV1CancelRoute: ApiPublicV1CancelRoute,
+  ApiPublicV1ChargesRoute: ApiPublicV1ChargesRouteWithChildren,
+  ApiPublicV1CustomersRoute: ApiPublicV1CustomersRouteWithChildren,
+  ApiPublicV1PaymentLinksRoute: ApiPublicV1PaymentLinksRoute,
+  ApiPublicV1PayoutsRoute: ApiPublicV1PayoutsRoute,
+  ApiPublicV1RefundsRoute: ApiPublicV1RefundsRoute,
+  ApiPublicV1TransactionsRoute: ApiPublicV1TransactionsRoute,
+  ApiPublicV1WebhooksRoute: ApiPublicV1WebhooksRoute,
+  ApiPublicShopifyWebhookTokenRoute: ApiPublicShopifyWebhookTokenRoute,
+  ApiPublicV1MedusaWebhookRoute: ApiPublicV1MedusaWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,0 +1,1 @@
+CREATE POLICY "Authenticated can view showcase products" ON public.products FOR SELECT TO authenticated USING (show_in_showcase = true);

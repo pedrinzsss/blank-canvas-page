@@ -1,0 +1,1 @@
+CREATE POLICY "Public read platform-assets" ON storage.objects FOR SELECT TO anon USING (bucket_id = 'platform-assets');
