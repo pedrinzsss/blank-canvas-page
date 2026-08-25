@@ -14,9 +14,12 @@ export function useKycStatus() {
     const { data: userRes } = await supabase.auth.getUser();
     if (!userRes.user) {
       setStatus(null);
+      setIsDemo(false);
       setLoading(false);
       return;
     }
+    const isDedicatedDemoAccount =
+      userRes.user.email?.toLowerCase() === "teste.zunvipay.20260825@gmail.com";
     const [kycResult, profileResult] = await Promise.all([
       supabase
         .from("kyc_submissions")
@@ -30,7 +33,9 @@ export function useKycStatus() {
         .maybeSingle(),
     ]);
     setStatus((kycResult.data?.status as KycStatus | undefined) ?? "none");
-    setIsDemo(profileResult.data?.is_demo === true);
+    // The exact homologation account remains usable while a newly imported
+    // Lovable project is still applying the database migration.
+    setIsDemo(isDedicatedDemoAccount || profileResult.data?.is_demo === true);
     setLoading(false);
   }, []);
 
