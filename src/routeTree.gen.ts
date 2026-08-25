@@ -86,6 +86,7 @@ import { Route as AuthenticatedAdminContasBancariasRouteImport } from './routes/
 import { Route as AuthenticatedAdminColaboradoresRouteImport } from './routes/_authenticated/admin/colaboradores'
 import { Route as AuthenticatedAdminAssinaturasRouteImport } from './routes/_authenticated/admin/assinaturas'
 import { Route as AuthenticatedAdminAntecipacoesRouteImport } from './routes/_authenticated/admin/antecipacoes'
+import { Route as AuthenticatedAdminAfiliadosRouteImport } from './routes/_authenticated/admin/afiliados'
 import { Route as AuthenticatedAdminAdquirentesListRouteImport } from './routes/_authenticated/admin/adquirentes-list'
 import { Route as AuthenticatedAdminAdquirentesRouteImport } from './routes/_authenticated/admin/adquirentes'
 import { Route as AuthenticatedAdminAdquirenteRouteImport } from './routes/_authenticated/admin/adquirente'
@@ -527,6 +528,12 @@ const AuthenticatedAdminAntecipacoesRoute =
     path: '/antecipacoes',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminAfiliadosRoute =
+  AuthenticatedAdminAfiliadosRouteImport.update({
+    id: '/afiliados',
+    path: '/afiliados',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminAdquirentesListRoute =
   AuthenticatedAdminAdquirentesListRouteImport.update({
     id: '/adquirentes-list',
@@ -672,6 +679,7 @@ export interface FileRoutesByFullPath {
   '/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
   '/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
   '/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/admin/afiliados': typeof AuthenticatedAdminAfiliadosRoute
   '/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
   '/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
   '/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
@@ -766,6 +774,7 @@ export interface FileRoutesByTo {
   '/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
   '/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
   '/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/admin/afiliados': typeof AuthenticatedAdminAfiliadosRoute
   '/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
   '/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
   '/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
@@ -863,6 +872,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/adquirente': typeof AuthenticatedAdminAdquirenteRoute
   '/_authenticated/admin/adquirentes': typeof AuthenticatedAdminAdquirentesRoute
   '/_authenticated/admin/adquirentes-list': typeof AuthenticatedAdminAdquirentesListRoute
+  '/_authenticated/admin/afiliados': typeof AuthenticatedAdminAfiliadosRoute
   '/_authenticated/admin/antecipacoes': typeof AuthenticatedAdminAntecipacoesRoute
   '/_authenticated/admin/assinaturas': typeof AuthenticatedAdminAssinaturasRoute
   '/_authenticated/admin/colaboradores': typeof AuthenticatedAdminColaboradoresRoute
@@ -960,6 +970,7 @@ export interface FileRouteTypes {
     | '/admin/adquirente'
     | '/admin/adquirentes'
     | '/admin/adquirentes-list'
+    | '/admin/afiliados'
     | '/admin/antecipacoes'
     | '/admin/assinaturas'
     | '/admin/colaboradores'
@@ -1054,6 +1065,7 @@ export interface FileRouteTypes {
     | '/admin/adquirente'
     | '/admin/adquirentes'
     | '/admin/adquirentes-list'
+    | '/admin/afiliados'
     | '/admin/antecipacoes'
     | '/admin/assinaturas'
     | '/admin/colaboradores'
@@ -1150,6 +1162,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/adquirente'
     | '/_authenticated/admin/adquirentes'
     | '/_authenticated/admin/adquirentes-list'
+    | '/_authenticated/admin/afiliados'
     | '/_authenticated/admin/antecipacoes'
     | '/_authenticated/admin/assinaturas'
     | '/_authenticated/admin/colaboradores'
@@ -1757,6 +1770,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminAntecipacoesRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/afiliados': {
+      id: '/_authenticated/admin/afiliados'
+      path: '/afiliados'
+      fullPath: '/admin/afiliados'
+      preLoaderRoute: typeof AuthenticatedAdminAfiliadosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/adquirentes-list': {
       id: '/_authenticated/admin/adquirentes-list'
       path: '/adquirentes-list'
@@ -1884,6 +1904,7 @@ interface AuthenticatedAdminRouteRouteChildren {
   AuthenticatedAdminAdquirenteRoute: typeof AuthenticatedAdminAdquirenteRoute
   AuthenticatedAdminAdquirentesRoute: typeof AuthenticatedAdminAdquirentesRoute
   AuthenticatedAdminAdquirentesListRoute: typeof AuthenticatedAdminAdquirentesListRoute
+  AuthenticatedAdminAfiliadosRoute: typeof AuthenticatedAdminAfiliadosRoute
   AuthenticatedAdminAntecipacoesRoute: typeof AuthenticatedAdminAntecipacoesRoute
   AuthenticatedAdminAssinaturasRoute: typeof AuthenticatedAdminAssinaturasRoute
   AuthenticatedAdminColaboradoresRoute: typeof AuthenticatedAdminColaboradoresRoute
@@ -1918,6 +1939,7 @@ const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren
     AuthenticatedAdminAdquirentesRoute: AuthenticatedAdminAdquirentesRoute,
     AuthenticatedAdminAdquirentesListRoute:
       AuthenticatedAdminAdquirentesListRoute,
+    AuthenticatedAdminAfiliadosRoute: AuthenticatedAdminAfiliadosRoute,
     AuthenticatedAdminAntecipacoesRoute: AuthenticatedAdminAntecipacoesRoute,
     AuthenticatedAdminAssinaturasRoute: AuthenticatedAdminAssinaturasRoute,
     AuthenticatedAdminColaboradoresRoute: AuthenticatedAdminColaboradoresRoute,

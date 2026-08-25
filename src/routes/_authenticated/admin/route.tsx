@@ -3,11 +3,6 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   beforeLoad: async () => {
-    // Check for collaborator access in localStorage
-    if (typeof window !== "undefined" && localStorage.getItem("admin_access") === "true") {
-      return;
-    }
-
     const { data: userRes } = await supabase.auth.getUser();
     if (!userRes.user) throw redirect({ to: "/" });
     

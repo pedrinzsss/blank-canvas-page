@@ -11,6 +11,14 @@ import {
 
 const EnvSchema = z.object({ environment: z.enum(["sandbox", "live"]) });
 
+// Affiliate-only accounts receive splits but cannot issue credentials for payment collection.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function assertPaymentCredentialsAllowed(supabase: any, userId: string) {
+  const { data, error } = await supabase.rpc("can_create_payment_credentials", { _user_id: userId });
+  if (error) throw new Error(error.message);
+  if (!data) throw new Error("Esta conta é exclusiva para recebimento de splits e não pode gerar credenciais de cobrança");
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function ensureClient(supabase: any, userId: string, environment: ApiEnv) {
   const existing = await supabase
@@ -32,6 +40,7 @@ async function ensureClient(supabase: any, userId: string, environment: ApiEnv) 
 export const listApiKeys = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
+    await assertPaymentCredentialsAllowed(context.supabase, context.userId);
     await ensureClient(context.supabase, context.userId, "sandbox");
     await ensureClient(context.supabase, context.userId, "live");
     const { data: clients } = await context.supabase
@@ -49,6 +58,7 @@ export const createApiKey = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) => EnvSchema.parse(d))
   .handler(async ({ data, context }) => {
+    await assertPaymentCredentialsAllowed(context.supabase, context.userId);
     const client = await ensureClient(context.supabase, context.userId, data.environment);
     const { publicKey, secretKey } = generateKeyPair(data.environment);
     const { data: key, error: err } = await context.supabase
@@ -82,6 +92,7 @@ export const regenerateWebhookSecret = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) => EnvSchema.parse(d))
   .handler(async ({ data, context }) => {
+    await assertPaymentCredentialsAllowed(context.supabase, context.userId);
     const client = await ensureClient(context.supabase, context.userId, data.environment);
     const secret = generateWebhookSecret();
     const { error: err } = await context.supabase

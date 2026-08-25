@@ -11,6 +11,7 @@ import {
   MessageCircle,
   LogIn,
   Eye,
+  ShieldBan,
 } from "lucide-react";
 import { AdminShell } from "@/components/admin-shell";
 import { supabase } from "@/integrations/supabase/client";
@@ -40,6 +41,8 @@ type Row = {
   customers: number;
   tags: string[];
   has_documents: boolean;
+  account_kind: "fintech" | "client" | "affiliate" | "partner";
+  account_status: "active" | "blocked";
 };
 
 type Filter =
@@ -51,6 +54,7 @@ type Filter =
   | "Filtros avançados";
 
 function ProdutoresPage() {
+  const db = supabase as any;
   const [filter, setFilter] = useState<Filter>("Ativos");
   const [search, setSearch] = useState("");
   const [doc, setDoc] = useState("");
@@ -68,7 +72,7 @@ function ProdutoresPage() {
   async function load() {
     setLoading(true);
     const [profRes, subRes, clientRes, custRes, txRes, docRes] = await Promise.all([
-      supabase.from("profiles").select("id, full_name, email, phone, created_at"),
+      db.from("profiles").select("id, full_name, email, phone, created_at, account_kind, account_status"),
       supabase.from("kyc_submissions").select("*"),
       supabase.from("api_clients").select("id, user_id"),
       supabase.from("customers").select("id, client_id"),
@@ -100,7 +104,15 @@ function ProdutoresPage() {
     const hasDocs = new Set<string>();
     (docRes.data ?? []).forEach((d: { user_id: string }) => hasDocs.add(d.user_id));
 
-    const list: Row[] = (profRes.data ?? []).map((p) => {
+    const list: Row[] = (profRes.data ?? []).map((p: {
+      id: string;
+      full_name: string | null;
+      email: string | null;
+      phone: string | null;
+      created_at: string;
+      account_kind?: Row["account_kind"];
+      account_status?: Row["account_status"];
+    }) => {
       const sub = subsByUser.get(p.id) ?? null;
       const status = (sub?.status as Row["kyc_status"] | undefined) ?? "none";
       return {
@@ -116,6 +128,8 @@ function ProdutoresPage() {
         customers: custCount.get(p.id)?.size ?? 0,
         tags: [],
         has_documents: hasDocs.has(p.id),
+        account_kind: p.account_kind ?? "client",
+        account_status: p.account_status ?? "active",
       };
     });
 
@@ -124,22 +138,22 @@ function ProdutoresPage() {
   }
 
   const totals = useMemo(() => {
-    const ativos = rows.filter((r) => r.kyc_status === "approved").length;
+    const ativos = rows.filter((r) => r.kyc_status === "approved" && r.account_status === "active").length;
     const pendentes = rows.filter((r) => r.kyc_status === "pending" || r.kyc_status === "none").length;
     const pendentesComDocs = rows.filter(
       (r) => (r.kyc_status === "pending" || r.kyc_status === "none") && r.has_documents,
     ).length;
-    const banidos = rows.filter((r) => r.kyc_status === "rejected").length;
+    const banidos = rows.filter((r) => r.kyc_status === "rejected" || r.account_status === "blocked").length;
     return { ativos, pendentes, pendentesComDocs, banidos, total: rows.length };
   }, [rows]);
 
   const filtered = useMemo(() => {
     return rows.filter((r) => {
       const isPend = r.kyc_status === "pending" || r.kyc_status === "none";
-      if (filter === "Ativos" && r.kyc_status !== "approved") return false;
+      if (filter === "Ativos" && (r.kyc_status !== "approved" || r.account_status !== "active")) return false;
       if (filter === "Pendentes" && !isPend) return false;
       if (filter === "Pendentes com documentos" && !(isPend && r.has_documents)) return false;
-      if (filter === "Banidos" && r.kyc_status !== "rejected") return false;
+      if (filter === "Banidos" && r.kyc_status !== "rejected" && r.account_status !== "blocked") return false;
       // "Todos" and "Filtros avançados" don't restrict by status here
       if (search) {
         const s = search.toLowerCase();
@@ -152,6 +166,19 @@ function ProdutoresPage() {
       return true;
     });
   }, [rows, filter, search, doc]);
+
+  async function toggleAccountStatus(row: Row) {
+    const next = row.account_status === "active" ? "blocked" : "active";
+    if (next === "blocked" && !confirm(`Bloquear a conta de ${row.full_name ?? row.email ?? "este cliente"}? As chaves de API ativas serão revogadas.`)) return;
+    const { error } = await db.rpc("admin_update_account", {
+      _user_id: row.user_id,
+      _account_kind: row.account_kind,
+      _account_status: next,
+    });
+    if (error) return toast.error(error.message);
+    toast.success(next === "blocked" ? "Conta bloqueada" : "Conta reativada");
+    await load();
+  }
 
 
   return (
@@ -297,7 +324,8 @@ function ProdutoresPage() {
                       </div>
                     </td>
                     <td className="px-4 py-5">
-                      <StatusPill status={p.kyc_status} />
+                      <StatusPill status={p.kyc_status} blocked={p.account_status === "blocked"} />
+                      <p className="mt-2 text-xs text-muted-foreground">{p.account_kind === "affiliate" ? "Conta de afiliado" : p.account_kind === "partner" ? "Plataforma parceira" : p.account_kind === "fintech" ? "Conta principal" : "Cliente/rifeiro"}</p>
                     </td>
                     <td className="px-4 py-5">
                       <p className="font-medium">{p.transactions} transações</p>
@@ -315,6 +343,7 @@ function ProdutoresPage() {
                         <IconAction title="Acessar painel do usuário" onClick={() => navigate({ to: "/dashboard", search: { as: p.user_id } })} icon={<LogIn className="h-3.5 w-3.5" />} />
                         <IconAction title="Adicionar tag" onClick={() => setTagRow(p)} icon={<Tag className="h-3.5 w-3.5" />} />
                         <IconAction title="Visualizar dados" onClick={() => setViewRow(p)} icon={<Eye className="h-3.5 w-3.5" />} />
+                        <IconAction title={p.account_status === "active" ? "Bloquear conta" : "Reativar conta"} onClick={() => void toggleAccountStatus(p)} icon={<ShieldBan className="h-3.5 w-3.5" />} />
                       </div>
                     </td>
                   </tr>
@@ -453,7 +482,8 @@ function StatusCard({
   );
 }
 
-function StatusPill({ status }: { status: Row["kyc_status"] }) {
+function StatusPill({ status, blocked = false }: { status: Row["kyc_status"]; blocked?: boolean }) {
+  if (blocked) return <span className="rounded-full border border-red-500/40 bg-red-500/15 px-3 py-1 text-xs font-medium text-red-400">Bloqueado</span>;
   const map = {
     approved: "bg-foreground/10 text-foreground dark:text-foreground border-border",
     pending: "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/40",

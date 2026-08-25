@@ -181,12 +181,6 @@ function AuthPanel() {
 
   useEffect(() => {
     async function routeByRole(userId: string) {
-      const isAdminAccess = localStorage.getItem("admin_access") === "true";
-      if (isAdminAccess) {
-        navigate({ to: "/admin", replace: true });
-        return;
-      }
-
       const { data } = await supabase
         .from("user_roles")
         .select("role")
@@ -261,31 +255,8 @@ function AuthPanel() {
         setResetSent(true);
 
       } else {
-        // First try standard auth
-        const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email, password });
-
-        if (authError) {
-          // If standard auth fails, check collaborators table
-          const { data: collaborator, error: collabError } = await supabase
-            .from("admin_collaborators")
-            .select("*")
-            .eq("email", email.trim())
-            .eq("password", password) // In a real production environment we would use hashes, but matching the request's logic for now
-            .maybeSingle();
-
-          if (collaborator && !collabError) {
-            // Found a collaborator, we need to sign them in as an admin.
-            // Since we can't easily "spoof" a session without an actual auth user,
-            // we'll assume the system should redirect them to /admin.
-            // Note: In a real system, you'd create a corresponding Auth User or use a custom token.
-            // For this specific requirement, we'll store a flag and redirect.
-            localStorage.setItem("admin_access", "true");
-            navigate({ to: "/admin", replace: true });
-            toast.success("Acesso administrativo concedido");
-            return;
-          }
-          throw authError;
-        }
+        const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
+        if (authError) throw authError;
 
         void logAudit("login", { method: "password", email });
         toast.success("Bem-vindo de volta!");

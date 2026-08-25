@@ -57,6 +57,7 @@ const groups: NavGroup[] = [
     items: [
       { icon: ShieldCheck, label: "Verificação KYC", to: "/admin/kyc" },
       { icon: UserSquare2, label: "Clientes", to: "/admin/produtores" },
+      { icon: Share2, label: "Afiliados e splits", to: "/admin/afiliados" },
       { icon: Landmark, label: "Contas Bancárias", to: "/admin/contas-bancarias" },
     ],
   },
@@ -113,7 +114,6 @@ export function AdminShell({ title, subtitle, children }: AdminShellProps) {
   async function handleSignOut() {
     const { logAudit } = await import("@/lib/audit");
     await logAudit("logout", {});
-    localStorage.removeItem("admin_access");
     await supabase.auth.signOut();
     toast.success("Sessão encerrada");
     navigate({ to: "/", replace: true });

@@ -107,6 +107,8 @@ const navItems: NavItem[] = [
   { icon: Calendar, label: "Assinaturas", to: "/planos" },
   { icon: BarChart3, label: "Simular Taxas", to: "/simular-taxas" },
   { icon: Users, label: "Equipe", to: "/equipe" },
+  { icon: Users, label: "Afiliados e Split", to: "/split-de-pagamentos" },
+  { icon: Wallet2, label: "Minha conta de afiliado", to: "/minhas-afiliacoes" },
 ];
 
 const navItemsManagement: NavItem[] = [
@@ -153,7 +155,6 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
   async function handleSignOut() {
     const { logAudit } = await import("@/lib/audit");
     await logAudit("logout", {});
-    localStorage.removeItem("admin_access");
     await supabase.auth.signOut();
     toast.success("Sessão encerrada");
     navigate({ to: "/", replace: true });
