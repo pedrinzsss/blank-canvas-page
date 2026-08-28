@@ -38,8 +38,9 @@ export function NotificationsBell() {
     (async () => {
       const { data: userData } = await supabase.auth.getUser();
       if (!userData.user) return;
+      const channelName = `notif-${userData.user.id}-${crypto.randomUUID()}`;
       channel = supabase
-        .channel("notif-" + userData.user.id)
+        .channel(channelName)
         .on(
           "postgres_changes",
           {
