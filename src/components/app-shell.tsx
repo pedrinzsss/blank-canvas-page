@@ -140,16 +140,28 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
     loading: kycLoading,
     isApproved: kycApproved,
     isDemo,
+    accountKind,
   } = useKycStatus();
   const isAdminArea = pathname.startsWith("/admin");
   const isOnboarding = pathname.startsWith("/onboarding");
-  const gated = !kycLoading && !isAdminArea && !isOnboarding && !kycApproved;
+  const kycRestricted = !kycLoading && !isAdminArea && !isOnboarding && !kycApproved;
+  const affiliateStatementAllowed =
+    accountKind === "affiliate" && pathname.startsWith("/minhas-afiliacoes");
+  const gated = kycRestricted && !affiliateStatementAllowed;
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
+    supabase.auth.getUser().then(async ({ data }) => {
+      const user = data.user;
+      if (!user) return;
+      const { data: profile } = await (supabase as any)
+        .from("profiles")
+        .select("full_name")
+        .eq("id", user.id)
+        .maybeSingle();
       const name =
-        (data.user?.user_metadata?.full_name as string | undefined) ??
-        data.user?.email ??
+        profile?.full_name ||
+        (user.user_metadata?.full_name as string | undefined) ||
+        user.email ||
         "Usuário";
       setUserName(name.split(" ")[0]);
     });
@@ -177,7 +189,8 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
           <SidebarBody
             dynamicLogo={dynamicLogo}
             pathname={pathname}
-            gated={gated}
+            gated={kycRestricted}
+            allowAffiliateStatement={accountKind === "affiliate"}
             onSignOut={handleSignOut}
           />
         </aside>
@@ -192,7 +205,8 @@ export function AppShell({ title, subtitle, headerCenter, children, showMobileBa
               <SidebarBody
                 dynamicLogo={dynamicLogo}
                 pathname={pathname}
-                gated={gated}
+                gated={kycRestricted}
+                allowAffiliateStatement={accountKind === "affiliate"}
                 onSignOut={handleSignOut}
               />
             </div>
@@ -351,11 +365,13 @@ function SidebarBody({
   dynamicLogo,
   pathname,
   gated,
+  allowAffiliateStatement,
   onSignOut,
 }: {
   dynamicLogo: string | null | undefined;
   pathname: string;
   gated: boolean;
+  allowAffiliateStatement: boolean;
   onSignOut: () => void;
 }) {
   const [showBalance, setShowBalance] = useState(true);
@@ -378,11 +394,18 @@ function SidebarBody({
       const meta = (userRes.user.user_metadata ?? {}) as Record<string, unknown>;
       
       // 2. Try to get from kyc_submissions (source of document)
-      const { data: kyc } = await supabase
-        .from("kyc_submissions")
-        .select("document, company_name, full_name")
-        .eq("user_id", userRes.user.id)
-        .maybeSingle();
+      const [{ data: kyc }, { data: profile }] = await Promise.all([
+        supabase
+          .from("kyc_submissions")
+          .select("document, company_name, full_name")
+          .eq("user_id", userRes.user.id)
+          .maybeSingle(),
+        (supabase as any)
+          .from("profiles")
+          .select("full_name, email")
+          .eq("id", userRes.user.id)
+          .maybeSingle(),
+      ]);
 
       if (alive) {
         const rawDoc = kyc?.document || (meta.document as string) || (userRes.user.email ?? "");
@@ -400,6 +423,7 @@ function SidebarBody({
           name:
             kyc?.company_name ||
             kyc?.full_name ||
+            profile?.full_name ||
             (meta.company_name as string) ||
             (meta.full_name as string) ||
             userRes.user.email ||
@@ -501,7 +525,12 @@ function SidebarBody({
       {/* Navegação */}
       <nav className="scrollbar-thin flex-1 space-y-0.5 overflow-y-auto px-3 py-4">
         {navItems.map((item) => (
-          <NavLinkItem key={item.label} item={item} activePath={pathname} disabled={gated} />
+          <NavLinkItem
+            key={item.label}
+            item={item}
+            activePath={pathname}
+            disabled={gated && !(allowAffiliateStatement && item.to === "/minhas-afiliacoes")}
+          />
         ))}
 
         {navItemsManagement.length > 0 && (
