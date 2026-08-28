@@ -7,6 +7,7 @@ export type KycStatus = Database["public"]["Enums"]["kyc_status"] | "none";
 export function useKycStatus() {
   const [status, setStatus] = useState<KycStatus | null>(null);
   const [isDemo, setIsDemo] = useState(false);
+  const [accountKind, setAccountKind] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
@@ -15,6 +16,7 @@ export function useKycStatus() {
     if (!userRes.user) {
       setStatus(null);
       setIsDemo(false);
+      setAccountKind(null);
       setLoading(false);
       return;
     }
@@ -28,7 +30,7 @@ export function useKycStatus() {
         .maybeSingle(),
       (supabase as any)
         .from("profiles")
-        .select("is_demo")
+        .select("is_demo, account_kind")
         .eq("id", userRes.user.id)
         .maybeSingle(),
     ]);
@@ -36,6 +38,7 @@ export function useKycStatus() {
     // The exact homologation account remains usable while a newly imported
     // Lovable project is still applying the database migration.
     setIsDemo(isDedicatedDemoAccount || profileResult.data?.is_demo === true);
+    setAccountKind(profileResult.data?.account_kind ?? null);
     setLoading(false);
   }, []);
 
@@ -46,6 +49,7 @@ export function useKycStatus() {
   return {
     status,
     isDemo,
+    accountKind,
     loading,
     refetch: load,
     isApproved: status === "approved" || isDemo,
